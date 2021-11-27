@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">Anidex</string>
+    <string name="group_content">Animes/Mangas</string>
+    <string name="group_mylist">My List</string>
+</resources>

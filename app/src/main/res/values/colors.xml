@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="deepOrange001">#DD2C00</color>
+    <color name="deepOrange002">#FF6434</color>
+    <color name="deepOrange003">#A30000</color>
+    <color name="blueGray001">#263238</color>
+    <color name="blueGray002">#4F5B62</color>
+    <color name="cyan001">#006064</color>
+    <color name="cyan002">#428e92</color>
+    <color name="materialWhite">#FFEEE8F7</color>
+    <color name="materialBlack">#FF100029</color>
+</resources>
