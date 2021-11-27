@@ -5,6 +5,7 @@ import androidx.paging.PagingState
 import de.coldtea.anidex.domain.JikanRepository
 import de.coldtea.anidex.domain.extensions.convertToDomain
 import de.coldtea.anidex.domain.model.Anime
+import timber.log.Timber
 import javax.inject.Inject
 
 class ActionPagingSource @Inject constructor(
@@ -18,8 +19,15 @@ class ActionPagingSource @Inject constructor(
 
     override suspend fun load(params: LoadParams<Int>): LoadResult<Int, Anime> {
         page = params.key ?: 1
-        val results =
-            jikanRepository.getAnimeByGenre(GENRE_ID, GENRE_NAME, page)
+        val results = try {
+            jikanRepository.getAnimeByGenre(GENRE_ID, page)
+        }catch (ex: java.lang.Exception){
+            Timber.e("Anidex --> ActionPagingSource.load : ex")
+            return LoadResult.Error(
+                Exception("Empty result")
+            )
+        }
+
         return if (results == null) {
             LoadResult.Error(
                 Exception("Empty result")
