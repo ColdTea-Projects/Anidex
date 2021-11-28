@@ -8,8 +8,9 @@ import de.coldtea.anidex.domain.model.Anime
 import timber.log.Timber
 import javax.inject.Inject
 
-class DramaPagingSource @Inject constructor(
-    private val jikanRepository: JikanRepository
+class JikanPagingSource(
+    private val jikanRepository: JikanRepository,
+    private val genreId: Int
 ) : PagingSource<Int, Anime>() {
     var page = 1
 
@@ -20,9 +21,9 @@ class DramaPagingSource @Inject constructor(
     override suspend fun load(params: LoadParams<Int>): LoadResult<Int, Anime> {
         page = params.key ?: 1
         val results = try {
-            jikanRepository.getAnimeByGenre(GENRE_ID, page)
+            jikanRepository.getAnimeByGenre(genreId, page)
         }catch (ex: java.lang.Exception){
-            Timber.e("Anidex --> ActionPagingSource.load : ex")
+            Timber.e("Anidex --> JikanPagingSourceJikanPagingSource.load : ex")
             return LoadResult.Error(
                 Exception("Empty result")
             )
@@ -44,8 +45,6 @@ class DramaPagingSource @Inject constructor(
     }
 
     companion object{
-        const val GENRE_ID = 8
-        const val GENRE_NAME = "Drama"
         const val PAGE_SIZE = 50
     }
 }

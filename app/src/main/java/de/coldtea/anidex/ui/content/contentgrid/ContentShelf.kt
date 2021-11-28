@@ -6,7 +6,6 @@ import androidx.compose.foundation.lazy.rememberLazyListState
 import androidx.compose.runtime.Composable
 import androidx.paging.compose.LazyPagingItems
 import de.coldtea.anidex.domain.model.Anime
-import de.coldtea.anidex.domain.paingsource.ActionPagingSource
 
 @Composable
 fun ContentShelf(sections: List<Pair<String, LazyPagingItems<Anime>>>, onItemClicked: (id: Int) -> Unit){

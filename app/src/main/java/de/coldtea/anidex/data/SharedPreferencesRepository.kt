@@ -2,12 +2,7 @@ package de.coldtea.anidex.data
 
 import android.content.Context
 import android.content.SharedPreferences
-import androidx.datastore.core.DataStore
-import androidx.datastore.preferences.core.Preferences
-import androidx.datastore.preferences.core.edit
-import androidx.datastore.preferences.core.stringSetPreferencesKey
-import androidx.datastore.preferences.preferencesDataStore
-import kotlinx.coroutines.CoroutineScope
+import de.coldtea.anidex.domain.model.Genre
 
 class SharedPreferencesRepository(context: Context) {
 
@@ -20,7 +15,15 @@ class SharedPreferencesRepository(context: Context) {
 
     var lastFetchedGenres: List<Int>?
         get() = sharedPreferences
-            .getStringSet(LAST_FETCHED_GENRES, setOf())
+            .getStringSet(
+                LAST_FETCHED_GENRES, setOf(
+                    Genre.ACTION.genreId.toString(),
+                    Genre.COMEDY.genreId.toString(),
+                    Genre.FANTASY.genreId.toString(),
+                    Genre.SHOUNEN.genreId.toString(),
+                    Genre.SUPER_POWER.genreId.toString()
+                )
+            )
             ?.map { it.toInt() }
             ?.toList()
         set(value) = sharedPreferences.edit().apply {
