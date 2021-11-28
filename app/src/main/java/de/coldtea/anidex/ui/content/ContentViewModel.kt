@@ -10,6 +10,9 @@ import de.coldtea.anidex.domain.JikanRepository
 import de.coldtea.anidex.domain.model.Anime
 import de.coldtea.anidex.domain.paingsource.ActionPagingSource
 import de.coldtea.anidex.domain.paingsource.ActionPagingSource.Companion.PAGE_SIZE
+import de.coldtea.anidex.domain.paingsource.DramaPagingSource
+import de.coldtea.anidex.domain.paingsource.FantasyPagingSource
+import de.coldtea.anidex.domain.paingsource.MilitaryPagingSource
 import de.coldtea.anidex.ui.content.model.ContentScreenState
 import de.coldtea.anidex.ui.content.model.GenreLoaded
 import kotlinx.coroutines.Dispatchers
@@ -22,7 +25,10 @@ import javax.inject.Inject
 
 @HiltViewModel
 class ContentViewModel @Inject constructor(
-    private val actionPagingSource: ActionPagingSource
+    private val actionPagingSource: ActionPagingSource,
+    private val dramaPagingSource: DramaPagingSource,
+    private val fantasyPagingSource: FantasyPagingSource,
+    private val militaryPagingSource: MilitaryPagingSource
 ) : ViewModel() {
     override fun onCleared() {
         Timber.i("Cleared")
@@ -31,5 +37,17 @@ class ContentViewModel @Inject constructor(
 
     fun getActionGenre(): Flow<PagingData<Anime>> {
         return Pager(PagingConfig(PAGE_SIZE)) { actionPagingSource }.flow
+    }
+
+    fun getDramaGenre(): Flow<PagingData<Anime>> {
+        return Pager(PagingConfig(PAGE_SIZE)) { dramaPagingSource }.flow
+    }
+
+    fun getFantasyGenre(): Flow<PagingData<Anime>> {
+        return Pager(PagingConfig(PAGE_SIZE)) { fantasyPagingSource }.flow
+    }
+
+    fun getMilitaryGenre(): Flow<PagingData<Anime>> {
+        return Pager(PagingConfig(PAGE_SIZE)) { militaryPagingSource }.flow
     }
 }

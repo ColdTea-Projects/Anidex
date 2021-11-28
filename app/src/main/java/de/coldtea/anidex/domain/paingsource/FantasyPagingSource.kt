@@ -8,7 +8,7 @@ import de.coldtea.anidex.domain.model.Anime
 import timber.log.Timber
 import javax.inject.Inject
 
-class ActionPagingSource @Inject constructor(
+class FantasyPagingSource @Inject constructor(
     private val jikanRepository: JikanRepository
 ) : PagingSource<Int, Anime>() {
     var page = 1
@@ -44,8 +44,8 @@ class ActionPagingSource @Inject constructor(
     }
 
     companion object{
-        const val GENRE_ID = 1
-        const val GENRE_NAME = "Action"
+        const val GENRE_ID = 10
+        const val GENRE_NAME = "Fantasy"
         const val PAGE_SIZE = 50
     }
 }

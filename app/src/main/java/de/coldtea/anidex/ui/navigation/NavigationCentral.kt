@@ -72,7 +72,7 @@ fun NavigationCentral() {
 
                     val contentViewModel = hiltViewModel<ContentViewModel>(parentEntry)
 
-                    ContentScreen(animes = contentViewModel.getActionGenre()){ id ->
+                    ContentScreen(viewModel = contentViewModel){ id ->
 
                     }
                 }
