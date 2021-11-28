@@ -1,25 +1,19 @@
 package de.coldtea.anidex.ui.content
 
+import android.content.SharedPreferences
 import androidx.lifecycle.ViewModel
-import androidx.lifecycle.viewModelScope
 import androidx.paging.Pager
 import androidx.paging.PagingConfig
 import androidx.paging.PagingData
 import dagger.hilt.android.lifecycle.HiltViewModel
-import de.coldtea.anidex.domain.JikanRepository
+import de.coldtea.anidex.data.SharedPreferencesRepository
 import de.coldtea.anidex.domain.model.Anime
 import de.coldtea.anidex.domain.paingsource.ActionPagingSource
 import de.coldtea.anidex.domain.paingsource.ActionPagingSource.Companion.PAGE_SIZE
 import de.coldtea.anidex.domain.paingsource.DramaPagingSource
 import de.coldtea.anidex.domain.paingsource.FantasyPagingSource
 import de.coldtea.anidex.domain.paingsource.MilitaryPagingSource
-import de.coldtea.anidex.ui.content.model.ContentScreenState
-import de.coldtea.anidex.ui.content.model.GenreLoaded
-import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.Flow
-import kotlinx.coroutines.flow.MutableSharedFlow
-import kotlinx.coroutines.flow.asSharedFlow
-import kotlinx.coroutines.launch
 import timber.log.Timber
 import javax.inject.Inject
 
@@ -28,8 +22,16 @@ class ContentViewModel @Inject constructor(
     private val actionPagingSource: ActionPagingSource,
     private val dramaPagingSource: DramaPagingSource,
     private val fantasyPagingSource: FantasyPagingSource,
-    private val militaryPagingSource: MilitaryPagingSource
+    private val militaryPagingSource: MilitaryPagingSource,
+    private val sharedPreferencesRepository: SharedPreferencesRepository
 ) : ViewModel() {
+
+    var lastFetcedGenres: List<Int>?
+        get() = sharedPreferencesRepository.lastFetchedGenres
+        set(value) {
+            sharedPreferencesRepository.lastFetchedGenres = value
+        }
+
     override fun onCleared() {
         Timber.i("Cleared")
         super.onCleared()

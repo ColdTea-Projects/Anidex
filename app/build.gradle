@@ -103,4 +103,7 @@ dependencies {
     implementation("androidx.paging:paging-guava:$paging_version")
     implementation("androidx.paging:paging-compose:1.0.0-alpha14")
 
+    // Data Store
+    implementation "androidx.datastore:datastore-preferences:1.0.0"
+
 }

@@ -2,7 +2,7 @@ package de.coldtea.anidex.domain.paingsource
 
 import androidx.paging.PagingSource
 import androidx.paging.PagingState
-import de.coldtea.anidex.domain.JikanRepository
+import de.coldtea.anidex.data.JikanRepository
 import de.coldtea.anidex.domain.extensions.convertToDomain
 import de.coldtea.anidex.domain.model.Anime
 import timber.log.Timber

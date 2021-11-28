@@ -1,4 +1,4 @@
-package de.coldtea.anidex.domain
+package de.coldtea.anidex.data
 
 import de.coldtea.anidex.data.JikanApi
 import kotlinx.coroutines.Dispatchers

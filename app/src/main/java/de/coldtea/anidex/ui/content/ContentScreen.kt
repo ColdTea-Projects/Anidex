@@ -1,5 +1,7 @@
 package de.coldtea.anidex.ui.content
 
+import android.content.SharedPreferences
+import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.paging.compose.collectAsLazyPagingItems
 import de.coldtea.anidex.domain.paingsource.ActionPagingSource
@@ -22,6 +24,7 @@ fun ContentScreen(
         MilitaryPagingSource.GENRE_NAME to viewModel.getMilitaryGenre().collectAsLazyPagingItems()
     )
 
-    ContentShelf(sections = sections, onItemClicked = onItemClicked)
+    viewModel.lastFetcedGenres = listOf(1, 8, 10, 38)
+    //ContentShelf(sections = sections, onItemClicked = onItemClicked)
 }
 
