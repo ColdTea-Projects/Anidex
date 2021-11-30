@@ -11,6 +11,7 @@ import de.coldtea.anidex.BuildConfig
 import de.coldtea.anidex.data.JikanRepository
 import de.coldtea.anidex.data.api.JikanApi
 import de.coldtea.anidex.data.api.SharedPreferencesRepository
+import de.coldtea.anidex.data.db.AnidexDatabase
 import de.coldtea.anidex.data.json
 import kotlinx.serialization.ExperimentalSerializationApi
 import okhttp3.MediaType.Companion.toMediaType
@@ -29,7 +30,7 @@ object DataModule {
 
     @Provides
     @Singleton
-    fun provideGamesRepository(jikanApi: JikanApi): JikanRepository = JikanRepository(jikanApi)
+    fun provideGamesRepository(jikanApi: JikanApi, anidexDatabase: AnidexDatabase): JikanRepository = JikanRepository(jikanApi, anidexDatabase)
 
     @Provides
     @Singleton
@@ -46,10 +47,15 @@ object DataModule {
 
     @Provides
     @Singleton
-    fun provideOkHttpClient(): OkHttpClient = OkHttpClient().newBuilder().apply {
+    fun provideOkHttpClient(): OkHttpClient = OkHttpClient().newBuilder()
+        .apply {
             val httpLoggingInterceptor = HttpLoggingInterceptor()
             httpLoggingInterceptor.level = HttpLoggingInterceptor.Level.BODY
             addInterceptor(httpLoggingInterceptor)
         }.build()
+
+    @Provides
+    @Singleton
+    fun provideAnidexDatabase(@ApplicationContext appContext: Context): AnidexDatabase = AnidexDatabase.getInstance(appContext)
 
 }

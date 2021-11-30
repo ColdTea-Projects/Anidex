@@ -1,6 +1,8 @@
 package de.coldtea.anidex.data
 
 import de.coldtea.anidex.data.api.JikanApi
+import de.coldtea.anidex.data.db.AnidexDatabase
+import de.coldtea.anidex.data.db.dao.DaoAnime
 import de.coldtea.anidex.domain.extensions.convertToDomain
 import de.coldtea.anidex.domain.model.Anime
 import kotlinx.coroutines.Dispatchers
@@ -9,8 +11,11 @@ import retrofit2.HttpException
 import javax.inject.Inject
 
 class JikanRepository @Inject constructor(
-    private val jikanApi: JikanApi
+    private val jikanApi: JikanApi,
+    private val anidexDatabase: AnidexDatabase
 ) {
+    val daoAnime: DaoAnime by lazy { anidexDatabase.daoAnime }
+
     //
     @Throws(HttpException::class)
     suspend fun getAnimeByGenre(id: Int, pageNumber: Int):List<Anime>? = withContext(Dispatchers.IO) {
@@ -34,5 +39,7 @@ class JikanRepository @Inject constructor(
         ?.map { it.convertToDomain() }
         .orEmpty()
 
-    suspend fun getAnimeByGenreLocal(id: Int, pageNumber: Int){}
+    suspend fun getAnimeByGenreLocal(){
+        daoAnime.getAnimesByGenre()
+    }
 }

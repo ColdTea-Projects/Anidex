@@ -23,7 +23,7 @@ class PagingSourceManager @Inject constructor(
             }.flow
         }
 
-    fun randomizeOneAndGetGenres(): List<Genre> {
+    private fun randomizeOneAndGetGenres(): List<Genre> {
         val allGenres = Genre.values()
         val genres = sharedPreferencesRepository.lastFetchedGenres ?: return listOf()
 
