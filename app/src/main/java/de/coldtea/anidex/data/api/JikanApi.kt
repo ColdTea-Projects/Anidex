@@ -1,9 +1,8 @@
-package de.coldtea.anidex.data
+package de.coldtea.anidex.data.api
 
-import de.coldtea.anidex.data.model.animesbygenre.AnimesByGenreResponse
+import de.coldtea.anidex.data.api.model.animesbygenre.AnimesByGenreResponse
 import retrofit2.http.GET
 import retrofit2.http.Path
-import retrofit2.http.Query
 
 interface JikanApi {
     @GET("genre/anime/{genre_id}/{page_number}")

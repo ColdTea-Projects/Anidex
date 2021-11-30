@@ -1,6 +1,6 @@
 package de.coldtea.anidex.domain.extensions
 
-import de.coldtea.anidex.data.model.animesbygenre.AnimeResponse
+import de.coldtea.anidex.data.api.model.animesbygenre.AnimeResponse
 import de.coldtea.anidex.domain.model.Anime
 
 fun AnimeResponse?.convertToDomain() =

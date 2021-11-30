@@ -1,11 +1,10 @@
-package de.coldtea.anidex.data
+package de.coldtea.anidex.data.api
 
 import android.content.Context
 import android.content.SharedPreferences
 import de.coldtea.anidex.domain.model.Genre
 
 class SharedPreferencesRepository(context: Context) {
-
     private val sharedPreferences: SharedPreferences by lazy {
         context.getSharedPreferences(
             ANIDEX_APP_SHARED_PREFERENCES,
@@ -31,8 +30,16 @@ class SharedPreferencesRepository(context: Context) {
             putStringSet(LAST_FETCHED_GENRES, valueAsSet)
         }.apply()
 
+    var isGenreRandomized: Boolean
+        get() = sharedPreferences
+            .getBoolean(IS_GENRE_RANDOMIZED, true)
+        set(value) = sharedPreferences.edit().apply{
+            putBoolean(IS_GENRE_RANDOMIZED, value)
+        }.apply()
+
     companion object {
         const val ANIDEX_APP_SHARED_PREFERENCES = "anidex_app_shared_preferences"
         const val LAST_FETCHED_GENRES = "last_fetched_genres"
+        const val IS_GENRE_RANDOMIZED = "is_genre_randomized"
     }
 }

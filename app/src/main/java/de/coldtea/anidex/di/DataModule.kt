@@ -8,9 +8,9 @@ import dagger.hilt.InstallIn
 import dagger.hilt.android.qualifiers.ApplicationContext
 import dagger.hilt.components.SingletonComponent
 import de.coldtea.anidex.BuildConfig
-import de.coldtea.anidex.data.SharedPreferencesRepository
-import de.coldtea.anidex.data.JikanApi
 import de.coldtea.anidex.data.JikanRepository
+import de.coldtea.anidex.data.api.JikanApi
+import de.coldtea.anidex.data.api.SharedPreferencesRepository
 import de.coldtea.anidex.data.json
 import kotlinx.serialization.ExperimentalSerializationApi
 import okhttp3.MediaType.Companion.toMediaType

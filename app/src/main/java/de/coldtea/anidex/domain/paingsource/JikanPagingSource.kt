@@ -3,10 +3,9 @@ package de.coldtea.anidex.domain.paingsource
 import androidx.paging.PagingSource
 import androidx.paging.PagingState
 import de.coldtea.anidex.data.JikanRepository
-import de.coldtea.anidex.domain.extensions.convertToDomain
 import de.coldtea.anidex.domain.model.Anime
+import retrofit2.HttpException
 import timber.log.Timber
-import javax.inject.Inject
 
 class JikanPagingSource(
     private val jikanRepository: JikanRepository,
@@ -22,8 +21,13 @@ class JikanPagingSource(
         page = params.key ?: 1
         val results = try {
             jikanRepository.getAnimeByGenre(genreId, page)
-        }catch (ex: java.lang.Exception){
-            Timber.e("Anidex --> JikanPagingSourceJikanPagingSource.load : ex")
+        }catch (exception: HttpException){
+            Timber.e("Anidex --> JikanPagingSourceJikanPagingSource.load: $exception")
+            return LoadResult.Error(
+                Exception("Empty result")
+            )
+        }catch (exception: HttpException){
+            Timber.e("Anidex --> JikanPagingSourceJikanPagingSource.load: $exception")
             return LoadResult.Error(
                 Exception("Empty result")
             )
@@ -35,7 +39,7 @@ class JikanPagingSource(
             )
         } else {
             LoadResult.Page(
-                data = results.anime?.map { it.convertToDomain() }.orEmpty(),
+                data = results,
                 prevKey =
                 if (page == 1) null
                 else page - 1,

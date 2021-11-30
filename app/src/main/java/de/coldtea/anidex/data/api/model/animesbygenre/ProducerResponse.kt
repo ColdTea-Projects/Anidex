@@ -1,11 +1,11 @@
-package de.coldtea.anidex.data.model.animesbygenre
+package de.coldtea.anidex.data.api.model.animesbygenre
 
 
 import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
 @Serializable
-data class GenreResponse(
+data class ProducerResponse(
     @SerialName("mal_id")
     var malId: Int?,
     @SerialName("name")
