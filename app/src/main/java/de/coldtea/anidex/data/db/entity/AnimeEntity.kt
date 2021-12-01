@@ -11,12 +11,12 @@ data class AnimeEntity(
     val animeId: Int = 0,
     @ColumnInfo(name = "name")
     val name: String,
+    @ColumnInfo(name = "genre_id")
+    val genreId: Int,
     @ColumnInfo(name = "image_url")
     val imageUrl: String,
-    @ColumnInfo(name = "score")
-    val score: Double,
-    @ColumnInfo(name = "is_bookmarked")
-    val isBookmarked: Boolean,
+    @ColumnInfo(name = "rate")
+    val rate: Double,
     @ColumnInfo(name = "created_at")
     val createdAt: Long
 )

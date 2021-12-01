@@ -1,8 +1,11 @@
 package de.coldtea.anidex.ui.content
 
 import androidx.lifecycle.ViewModel
+import androidx.paging.PagingData
 import dagger.hilt.android.lifecycle.HiltViewModel
+import de.coldtea.anidex.domain.model.Anime
 import de.coldtea.anidex.domain.paingsource.PagingSourceManager
+import kotlinx.coroutines.flow.Flow
 import timber.log.Timber
 import javax.inject.Inject
 
@@ -10,12 +13,18 @@ import javax.inject.Inject
 class ContentViewModel @Inject constructor(
     private val pagingSourceManager: PagingSourceManager
 ) : ViewModel() {
+    private var genrePagers: List<Pair<String, Flow<PagingData<Anime>>>>? = null
 
     override fun onCleared() {
         Timber.i("Cleared")
         super.onCleared()
     }
 
-    fun getGenrePagers() = pagingSourceManager.producePagers()
+    fun getGenrePagers() = genrePagers
+        ?: pagingSourceManager
+            .producePagers()
+            .apply {
+                genrePagers = this
+            }
 
 }

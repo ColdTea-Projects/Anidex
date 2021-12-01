@@ -4,8 +4,8 @@ import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
 import dagger.hilt.components.SingletonComponent
-import de.coldtea.anidex.data.JikanRepository
 import de.coldtea.anidex.data.api.SharedPreferencesRepository
+import de.coldtea.anidex.data.repo.JikanRepository
 import de.coldtea.anidex.domain.paingsource.PagingSourceManager
 import javax.inject.Singleton
 

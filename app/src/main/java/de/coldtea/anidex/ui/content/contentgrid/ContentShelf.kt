@@ -8,15 +8,21 @@ import androidx.paging.compose.LazyPagingItems
 import de.coldtea.anidex.domain.model.Anime
 
 @Composable
-fun ContentShelf(sections: List<Pair<String, LazyPagingItems<Anime>>>, onItemClicked: (id: Int) -> Unit){
+fun ContentShelf(
+    sections: List<Pair<String, LazyPagingItems<Anime>>>,
+    onItemClicked: (id: Int) -> Unit
+) {
     val lazyListState = rememberLazyListState()
+
     LazyColumn(content = {
-        itemsIndexed(sections){ _, item ->
+        itemsIndexed(sections) { _, item ->
             VerticalCardSlider(
                 title = item.first,
                 animes = item.second,
-                onItemClicked = onItemClicked
-            )
+                onItemClicked = onItemClicked,
+                cardHeight = 180,
+                cardWidth = 115
+            )//250/160
         }
     }, state = lazyListState)
 
