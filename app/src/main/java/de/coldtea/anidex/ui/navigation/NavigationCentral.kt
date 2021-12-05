@@ -1,7 +1,7 @@
 package de.coldtea.anidex.ui.navigation
 
-import androidx.compose.foundation.lazy.LazyListState
-import androidx.compose.foundation.lazy.rememberLazyListState
+import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.padding
 import androidx.compose.material.BottomNavigation
 import androidx.compose.material.BottomNavigationItem
 import androidx.compose.material.Icon
@@ -9,7 +9,7 @@ import androidx.compose.material.Scaffold
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
-import androidx.compose.runtime.remember
+import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.hilt.navigation.compose.hiltViewModel
@@ -62,24 +62,23 @@ fun NavigationCentral() {
                 }
             }
         }
-    ) {
-        NavHost(navController = navController, startDestination = GROUP_CONTENT) {
-            navigation(startDestination =SCREEN_CONTENT, route = GROUP_CONTENT) {
-                composable(SCREEN_CONTENT) { backStackEntry ->
-                    val parentEntry = remember {
-                        navController.getBackStackEntry(GROUP_CONTENT)
-                    }
+    ) { innerPadding ->
+        // Apply the padding globally to the whole BottomNavScreensController
+        Box(modifier = Modifier.padding(innerPadding)) {
+            NavHost(navController = navController, startDestination = GROUP_CONTENT) {
+                navigation(startDestination = SCREEN_CONTENT, route = GROUP_CONTENT) {
+                    composable(SCREEN_CONTENT) {
+                        val contentViewModel = hiltViewModel<ContentViewModel>()
 
-                    val contentViewModel = hiltViewModel<ContentViewModel>(parentEntry)
+                        ContentScreen(viewModel = contentViewModel) { id ->
 
-                    ContentScreen(viewModel = contentViewModel){ id ->
-
+                        }
                     }
                 }
-            }
-            navigation(startDestination = SCREEN_MYLIST, route = GROUP_MYLIST) {
-                composable(SCREEN_MYLIST) {
+                navigation(startDestination = SCREEN_MYLIST, route = GROUP_MYLIST) {
+                    composable(SCREEN_MYLIST) {
 
+                    }
                 }
             }
         }

@@ -10,7 +10,7 @@ import de.coldtea.anidex.data.db.entity.AnimeEntity
 abstract class DaoAnime : DaoBase<AnimeEntity> {
 
     @Transaction
-    @Query("SELECT * FROM anime WHERE genre_id = :genreId")
+    @Query("SELECT * FROM anime WHERE genre_id = :genreId ORDER BY created_at")
     abstract fun pagingSourceByGenre(genreId: Int): PagingSource<Int, AnimeEntity>
 
     @Transaction

@@ -45,6 +45,7 @@ class JikanRemoteMediator(
 
                 nextKey
             }
+            else -> 1
         }
 
         try {
@@ -83,7 +84,7 @@ class JikanRemoteMediator(
     }
 
     private suspend fun getPageKeyForFirstItem(state: PagingState<Int, AnimeEntity>): AnimePageKeysEntity? {
-        return state.pages.lastOrNull { it.data.isNotEmpty() }?.data?.firstOrNull()
+        return state.pages.firstOrNull { it.data.isNotEmpty() }?.data?.firstOrNull()
             ?.let { anime ->
                 db.daoAnimePageKeys.getAnimePageKeys(anime.animeId,genreId )
             }

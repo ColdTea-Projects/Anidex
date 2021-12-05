@@ -3,7 +3,7 @@ package de.coldtea.anidex.data.db.entity
 import androidx.room.ColumnInfo
 import androidx.room.Entity
 
-@Entity(tableName = "anime_page_keys", primaryKeys = arrayOf("genre_id", "anime_id"))
+@Entity(tableName = "anime_page_keys", primaryKeys = ["genre_id", "anime_id"])
 data class AnimePageKeysEntity(
     @ColumnInfo(name = "genre_id")
     val genreId: Int,

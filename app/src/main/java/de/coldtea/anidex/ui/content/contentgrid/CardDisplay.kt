@@ -44,7 +44,7 @@ fun CardDisplay(
         backgroundColor = Color.Black,
         modifier =
         modifier
-            .padding(start = 16.dp, top = 16.dp)
+            .padding(start = 6.dp, end = 6.dp, top = 12.dp)
             .clip(RoundedCornerShape(10.dp))
             .height(height.dp)
             .width(width.dp)

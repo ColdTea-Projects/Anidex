@@ -15,7 +15,7 @@ internal interface DaoBase<T> {
     suspend fun insert(vararg obj: T)
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    suspend fun insertAll(users: List<T>)
+    suspend fun insertAll(objects: List<T>)
 
     @Update(onConflict = OnConflictStrategy.REPLACE)
     suspend fun update(obj: T)
