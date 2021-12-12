@@ -20,12 +20,16 @@ import androidx.navigation.compose.composable
 import androidx.navigation.compose.currentBackStackEntryAsState
 import androidx.navigation.compose.navigation
 import androidx.navigation.compose.rememberNavController
+import de.coldtea.anidex.base.data.extensions.orInvalidId
 import de.coldtea.anidex.base.ui.navigation.model.GROUP_CONTENT
 import de.coldtea.anidex.base.ui.navigation.model.GROUP_MYLIST
 import de.coldtea.anidex.base.ui.navigation.model.SCREEN_CONTENT
+import de.coldtea.anidex.base.ui.navigation.model.SCREEN_CONTENT_DETAIL
 import de.coldtea.anidex.base.ui.navigation.model.SCREEN_MYLIST
 import de.coldtea.anidex.base.ui.navigation.model.screenGroups
 import de.coldtea.anidex.content.ui.ContentViewModel
+import de.coldtea.anidex.contentdetail.ui.ContentDetailScreen
+import de.coldtea.anidex.contentdetail.ui.ContentDetailViewModel
 import de.coldtea.anidex.ui.content.ContentScreen
 
 @Composable
@@ -71,8 +75,15 @@ fun NavigationCentral() {
                         val contentViewModel = hiltViewModel<ContentViewModel>()
 
                         ContentScreen(viewModel = contentViewModel) { id ->
-
+                            navController.navigate("$SCREEN_CONTENT_DETAIL/$id")
                         }
+                    }
+                    composable("$SCREEN_CONTENT_DETAIL/{anime_id}"){ navBackStackEntry ->
+                        val animeId: String = navBackStackEntry.arguments?.getString("anime_id").orEmpty()
+                        val contentDetailViewModel = hiltViewModel<ContentDetailViewModel>()
+                        contentDetailViewModel.fetchAnimeDetail(animeId.toInt().orInvalidId())
+                        
+                        ContentDetailScreen(viewModel = contentDetailViewModel)
                     }
                 }
                 navigation(startDestination = SCREEN_MYLIST, route = GROUP_MYLIST) {
