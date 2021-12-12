@@ -15,24 +15,32 @@ import de.coldtea.anidex.contentdetail.domain.model.StaffPreview
 
 data class AnimeDetailBundle(
     @Embedded val animeDetail: AnimeDetailEntity,
+
     @Relation(
+        entity = CharacterPreviewEntity::class,
         parentColumn = "anime_id",
         entityColumn = "fk_anime_id"
     )
     val characters: List<CharacterPreviewEntity>,
+
     @Relation(
+        entity = StaffPreviewEntity::class,
         parentColumn = "anime_id",
         entityColumn = "fk_anime_id"
     )
     val staff: List<StaffPreviewEntity>,
+
     @Relation(
+        entity = AnimeDetailPicturesEntitiy::class,
         parentColumn = "anime_id",
-        entityColumn = "anime_id"
+        entityColumn = "fk_anime_id"
     )
     val pictures: List<AnimeDetailPicturesEntitiy>,
+
     @Relation(
+        entity = AnimeDetailVideosEntitiy::class,
         parentColumn = "anime_id",
-        entityColumn = "anime_id"
+        entityColumn = "fk_anime_id"
     )
     val videos: List<AnimeDetailVideosEntitiy>
 ) {

@@ -12,5 +12,5 @@ interface DaoAnimeDetail: DaoBase<AnimeDetailEntity> {
 
     @Transaction
     @Query("SELECT * FROM anime_detail WHERE anime_id = :animeId")
-    suspend fun getAnimeDetails(animeId: Int): AnimeDetailBundle
+    suspend fun getAnimeDetails(animeId: Int): List<AnimeDetailBundle>
 }

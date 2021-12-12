@@ -21,6 +21,7 @@ class ContentDetailRepository @Inject constructor(
         return anidexDatabase
             .daoAnimeDetail
             .getAnimeDetails(animeId = animeId)
+            .first()
             .convertToDomainObject()
     }
 

@@ -14,12 +14,22 @@ import de.coldtea.anidex.contentdetail.data.db.dao.DaoAnimeDetailPictures
 import de.coldtea.anidex.contentdetail.data.db.dao.DaoAnimeDetailVideos
 import de.coldtea.anidex.contentdetail.data.db.dao.DaoCharacterPreview
 import de.coldtea.anidex.contentdetail.data.db.dao.DaoStaffPreview
+import de.coldtea.anidex.contentdetail.data.db.entity.AnimeDetailEntity
+import de.coldtea.anidex.contentdetail.data.db.entity.AnimeDetailPicturesEntitiy
+import de.coldtea.anidex.contentdetail.data.db.entity.AnimeDetailVideosEntitiy
+import de.coldtea.anidex.contentdetail.data.db.entity.CharacterPreviewEntity
+import de.coldtea.anidex.contentdetail.data.db.entity.StaffPreviewEntity
 
 @SuppressLint("RestrictedApi")
 @Database(
     entities = [
         AnimeEntity::class,
-        AnimePageKeysEntity::class
+        AnimePageKeysEntity::class,
+        AnimeDetailEntity::class,
+        CharacterPreviewEntity::class,
+        StaffPreviewEntity::class,
+        AnimeDetailPicturesEntitiy::class,
+        AnimeDetailVideosEntitiy::class
     ],
     version = 1,
     exportSchema = false
