@@ -8,6 +8,7 @@ import androidx.compose.material.Icon
 import androidx.compose.material.Scaffold
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.painterResource
@@ -78,12 +79,17 @@ fun NavigationCentral() {
                             navController.navigate("$SCREEN_CONTENT_DETAIL/$id")
                         }
                     }
-                    composable("$SCREEN_CONTENT_DETAIL/{anime_id}"){ navBackStackEntry ->
+                    composable("$SCREEN_CONTENT_DETAIL/{anime_id}") { navBackStackEntry ->
                         val animeId: String = navBackStackEntry.arguments?.getString("anime_id").orEmpty()
                         val contentDetailViewModel = hiltViewModel<ContentDetailViewModel>()
                         contentDetailViewModel.fetchAnimeDetail(animeId.toInt().orInvalidId())
-                        
-                        ContentDetailScreen(viewModel = contentDetailViewModel)
+
+                        ContentDetailScreen(
+                            screenState = contentDetailViewModel.contentDetailScreenState.collectAsState(),
+                            onClickAddToWatchList = { animeId -> contentDetailViewModel.addToWatchlist(animeId) },
+                            onCharacterClicked = {},
+                            onStaffClicked = {}
+                        )
                     }
                 }
                 navigation(startDestination = SCREEN_MYLIST, route = GROUP_MYLIST) {

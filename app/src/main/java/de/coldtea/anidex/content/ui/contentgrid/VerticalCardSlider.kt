@@ -1,5 +1,6 @@
 package de.coldtea.anidex.content.ui.contentgrid
 
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
@@ -32,16 +33,16 @@ fun VerticalCardSlider(
             content = {
                 items(animes){ anime ->
                     if(anime != null){
-                        CardDisplay(
+                        ContentCardDisplay(
+                            modifier = modifier.clickable {
+                                onItemClicked(anime.id)
+                            },
                             height = cardHeight,
                             width = cardWidth,
                             name = anime.name,
                             imageUrl = anime.imageUrl,
                             isBookmarked = anime.isBookmarked,
-                            rate = anime.rate,
-                            onClickAction = {
-                                onItemClicked(anime.id)
-                            }
+                            rate = anime.rate
                         )
                     }
                 }

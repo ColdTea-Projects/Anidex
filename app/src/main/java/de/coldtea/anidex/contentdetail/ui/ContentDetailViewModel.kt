@@ -31,4 +31,6 @@ class ContentDetailViewModel @Inject constructor(
         }
 
     }
+
+    fun addToWatchlist(animeId: Int) = viewModelScope.launch(Dispatchers.IO){}
 }

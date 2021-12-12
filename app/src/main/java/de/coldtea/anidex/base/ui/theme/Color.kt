@@ -10,12 +10,15 @@ val deepOrange003 = Color(0xFFA30000)
 
 val blueGray001 = Color(0xFF263238)
 val blueGray002 = Color(0xFF4F5B62)
+val blueGrayLight = Color(0xFFDEE6EB)
+val blueGrayDark = Color(0xFF121314)
 
 val cyan001 = Color(0xFF006064)
 val cyan002 = Color(0xFF428e92)
 
 val materialWhite = Color(0xFFEEE8F7)
-val materialBlack = Color(0xFF100029)
+val materialBlack = Color(0xFF000105)
+val materialDarkG = Color(0xFF000105)
 
 val materialBlackT90 = Color(0xE6000000)
 
@@ -24,7 +27,7 @@ val LightColors = lightColors(
     primaryVariant = deepOrange002,
     secondary = blueGray001,
     secondaryVariant = blueGray002,
-    background = materialWhite,
+    background = blueGrayLight,
     surface = materialWhite,
     error = deepOrange003
 )
@@ -34,7 +37,7 @@ val DarkColors = darkColors(
     primaryVariant = deepOrange002,
     secondary = cyan001,
     secondaryVariant = cyan002,
-    background = materialBlack,
-    surface = materialWhite,
+    background = blueGrayDark,
+    surface = deepOrange003,
     error = deepOrange003
 )

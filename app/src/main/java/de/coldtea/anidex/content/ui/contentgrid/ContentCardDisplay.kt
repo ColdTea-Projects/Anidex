@@ -29,15 +29,14 @@ import de.coldtea.anidex.base.ui.theme.materialBlackT90
 
 //https://cdn.myanimelist.net/images/anime/10/47347.jpg
 @Composable
-fun CardDisplay(
+fun ContentCardDisplay(
     modifier: Modifier = Modifier,
     height: Int,
     width: Int,
     name: String,
     imageUrl: String,
     isBookmarked: Boolean,
-    rate:Double,
-    onClickAction: () -> Unit
+    rate:Double
 ) {
     Card(
         elevation = 20.dp,
