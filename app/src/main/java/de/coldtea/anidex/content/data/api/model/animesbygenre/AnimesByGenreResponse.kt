@@ -7,7 +7,7 @@ import kotlinx.serialization.Serializable
 @Serializable
 data class AnimesByGenreResponse(
     @SerialName("anime")
-    var anime: List<AnimeDetailResponse>?,
+    var anime: List<AnimeResponse>?,
     @SerialName("item_count")
     var itemCount: Int?,
     @SerialName("mal_url")

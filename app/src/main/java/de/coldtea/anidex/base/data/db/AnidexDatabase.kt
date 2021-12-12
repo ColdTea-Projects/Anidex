@@ -9,6 +9,11 @@ import de.coldtea.anidex.content.data.db.dao.DaoAnime
 import de.coldtea.anidex.content.data.db.dao.DaoAnimePageKeys
 import de.coldtea.anidex.content.data.db.entity.AnimeEntity
 import de.coldtea.anidex.content.data.db.entity.AnimePageKeysEntity
+import de.coldtea.anidex.contentdetail.data.db.dao.DaoAnimeDetail
+import de.coldtea.anidex.contentdetail.data.db.dao.DaoAnimeDetailPictures
+import de.coldtea.anidex.contentdetail.data.db.dao.DaoAnimeDetailVideos
+import de.coldtea.anidex.contentdetail.data.db.dao.DaoCharacterPreview
+import de.coldtea.anidex.contentdetail.data.db.dao.DaoStaffPreview
 
 @SuppressLint("RestrictedApi")
 @Database(
@@ -23,6 +28,11 @@ abstract class AnidexDatabase : RoomDatabase() {
 
     abstract val daoAnime: DaoAnime
     abstract val daoAnimePageKeys: DaoAnimePageKeys
+    abstract val daoAnimeDetail: DaoAnimeDetail
+    abstract val daoCharacterPreview: DaoCharacterPreview
+    abstract val daoStaffPreview: DaoStaffPreview
+    abstract val daoAnimeDetailPictures: DaoAnimeDetailPictures
+    abstract val daoAnimeDetailVideos: DaoAnimeDetailVideos
 
     companion object {
         @Volatile

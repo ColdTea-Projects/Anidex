@@ -5,7 +5,7 @@ import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
 @Serializable
-data class AnimeDetailResponse(
+data class AnimeResponse(
     @SerialName("airing_start")
     var airingStart: String?,
     @SerialName("demographic")

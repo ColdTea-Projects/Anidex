@@ -1,10 +1,10 @@
-package de.coldtea.anidex.base.data
+package de.coldtea.anidex.content.domain
 
 import de.coldtea.anidex.base.data.api.JikanApi
 import de.coldtea.anidex.base.data.db.AnidexDatabase
 import javax.inject.Inject
 
-class JikanRepository @Inject constructor(
+class ContentRepository @Inject constructor(
     val jikanApi: JikanApi,
     val anidexDatabase: AnidexDatabase
 ){

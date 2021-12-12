@@ -6,7 +6,7 @@ import androidx.room.OnConflictStrategy
 import androidx.room.Transaction
 import androidx.room.Update
 
-internal interface DaoBase<T> {
+interface DaoBase<T> {
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun insert(obj: T): Long
@@ -26,7 +26,7 @@ internal interface DaoBase<T> {
 }
 
 @Transaction
-internal suspend inline fun <reified T> DaoBase<T>.insertOrUpdate(item: T) {
+suspend inline fun <reified T> DaoBase<T>.insertOrUpdate(item: T) {
     if (insert(item) != -1L) return
     update(item)
 }

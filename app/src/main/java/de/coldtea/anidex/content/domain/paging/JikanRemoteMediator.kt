@@ -1,4 +1,4 @@
-package de.coldtea.anidex.content.data.paging
+package de.coldtea.anidex.content.domain.paging
 
 import androidx.paging.ExperimentalPagingApi
 import androidx.paging.LoadType

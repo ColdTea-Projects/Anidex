@@ -1,14 +1,14 @@
-package de.coldtea.anidex.content.data.paging
+package de.coldtea.anidex.content.domain.paging
 //
 //import androidx.paging.PagingSource
 //import androidx.paging.PagingState
-//import de.coldtea.anidex.base.data.JikanRepository
+//import de.coldtea.anidex.content.domain.ContentRepository
 //import de.coldtea.anidex.domain.model.Anime
 //import retrofit2.HttpException
 //import timber.log.Timber
 //
 //class JikanPagingSource(
-//    private val jikanRepository: JikanRepository,
+//    private val jikanRepository: ContentRepository,
 //    private val genreId: Int
 //) : PagingSource<Int, Anime>() {
 //    var page = 1

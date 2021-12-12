@@ -5,12 +5,12 @@ import androidx.paging.Pager
 import androidx.paging.PagingConfig
 import androidx.paging.PagingData
 import androidx.paging.map
-import de.coldtea.anidex.base.data.JikanRepository
 import de.coldtea.anidex.base.data.SharedPreferencesRepository
 import de.coldtea.anidex.base.data.extensions.convertToAnime
-import de.coldtea.anidex.content.data.paging.JikanRemoteMediator
+import de.coldtea.anidex.content.domain.ContentRepository
 import de.coldtea.anidex.content.domain.model.Anime
 import de.coldtea.anidex.content.domain.model.AnimeGenre
+import de.coldtea.anidex.content.domain.paging.JikanRemoteMediator
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.map
 import javax.inject.Inject
@@ -18,7 +18,7 @@ import kotlin.random.Random
 
 @OptIn(ExperimentalPagingApi::class)
 class PagingSourceManager @Inject constructor(
-    private val jikanRepository: JikanRepository,
+    private val contentRepository: ContentRepository,
     private val sharedPreferencesRepository: SharedPreferencesRepository
 ) {
     fun producePagers(): List<Pair<String, Flow<PagingData<Anime>>>> =
@@ -30,10 +30,10 @@ class PagingSourceManager @Inject constructor(
                 ),
                 remoteMediator = JikanRemoteMediator(
                     genreId = genre.genreId,
-                    api = jikanRepository.jikanApi,
-                    db = jikanRepository.anidexDatabase
+                    api = contentRepository.jikanApi,
+                    db = contentRepository.anidexDatabase
                 ),
-                pagingSourceFactory = { jikanRepository.getAnimesByGenre(genre.genreId) }
+                pagingSourceFactory = { contentRepository.getAnimesByGenre(genre.genreId) }
             ).flow.map { pagingData ->
                 pagingData.map {
                     it.convertToAnime(it.genreId)
