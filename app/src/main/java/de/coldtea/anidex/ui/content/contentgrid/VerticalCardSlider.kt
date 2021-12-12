@@ -1,6 +1,8 @@
 package de.coldtea.anidex.ui.content.contentgrid
 
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.LazyRow
 import androidx.compose.foundation.lazy.rememberLazyListState
@@ -23,7 +25,7 @@ fun VerticalCardSlider(
     cardWidth: Int
 ) {
     val scrollState = rememberLazyListState()
-    Column(modifier = modifier) {
+    Column(modifier = modifier.fillMaxWidth().height(230.dp)) {
         Text(text = title, Modifier.padding(start = 16.dp))
         LazyRow(
             state = scrollState,

@@ -10,7 +10,7 @@ import de.coldtea.anidex.data.extensions.convertToAnime
 import de.coldtea.anidex.data.paging.JikanRemoteMediator
 import de.coldtea.anidex.data.repo.JikanRepository
 import de.coldtea.anidex.domain.model.Anime
-import de.coldtea.anidex.domain.model.Genre
+import de.coldtea.anidex.domain.model.AnimeGenre
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.map
 import javax.inject.Inject
@@ -22,7 +22,7 @@ class PagingSourceManager @Inject constructor(
     private val sharedPreferencesRepository: SharedPreferencesRepository
 ) {
     fun producePagers(): List<Pair<String, Flow<PagingData<Anime>>>> =
-        randomizeOneAndGetGenres().sortedBy { it.genreName }.map { genre ->
+        randomizeOneAndGetAnimeGenres().sortedBy { it.genreName }.map { genre ->
             genre.genreName to Pager(
                 config = PagingConfig(
                     pageSize = PAGE_SIZE,
@@ -41,12 +41,12 @@ class PagingSourceManager @Inject constructor(
             }
         }
 
-    private fun randomizeOneAndGetGenres(): List<Genre> {
-        val allGenres = Genre.values()
+    private fun randomizeOneAndGetAnimeGenres(): List<AnimeGenre> {
+        val allGenres = AnimeGenre.values()
         val genres = sharedPreferencesRepository.lastFetchedGenres ?: return listOf()
 
         if(sharedPreferencesRepository.isGenreRandomized){
-            val randomizeOrdinal = Random.nextInt(0, 4)
+            val randomizeOrdinal = Random.nextInt(0, 9)
             var randomizedGenre: Int
 
             do {

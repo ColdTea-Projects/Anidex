@@ -2,7 +2,7 @@ package de.coldtea.anidex.data.api
 
 import android.content.Context
 import android.content.SharedPreferences
-import de.coldtea.anidex.domain.model.Genre
+import de.coldtea.anidex.domain.model.AnimeGenre
 
 class SharedPreferencesRepository(context: Context) {
     private val sharedPreferences: SharedPreferences by lazy {
@@ -16,11 +16,15 @@ class SharedPreferencesRepository(context: Context) {
         get() = sharedPreferences
             .getStringSet(
                 LAST_FETCHED_GENRES, setOf(
-                    Genre.ACTION.genreId.toString(),
-                    Genre.COMEDY.genreId.toString(),
-                    Genre.FANTASY.genreId.toString(),
-                    Genre.SHOUNEN.genreId.toString(),
-                    Genre.SUPER_POWER.genreId.toString()
+                    AnimeGenre.ACTION.genreId.toString(),
+                    AnimeGenre.COMEDY.genreId.toString(),
+                    AnimeGenre.FANTASY.genreId.toString(),
+                    AnimeGenre.SHOUNEN.genreId.toString(),
+                    AnimeGenre.SUPER_POWER.genreId.toString(),
+                    AnimeGenre.MILITARY.genreId.toString(),
+                    AnimeGenre.BOYS_LOVE.genreId.toString(),
+                    AnimeGenre.GIRLS_LOVE.genreId.toString(),
+                    AnimeGenre.VAMPIRE.genreId.toString()
                 )
             )
             ?.map { it.toInt() }
