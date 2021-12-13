@@ -1,4 +1,4 @@
-package de.coldtea.anidex.contentdetail.ui.viewitems.rows
+package de.coldtea.anidex.base.ui.viewitems
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
@@ -25,7 +25,7 @@ import de.coldtea.anidex.R
 import de.coldtea.anidex.base.ui.theme.materialBlackT90
 
 @Composable
-fun PersonCardDisplay(
+fun PreviewCardDisplay(
     modifier: Modifier = Modifier,
     height: Int,
     width: Int,

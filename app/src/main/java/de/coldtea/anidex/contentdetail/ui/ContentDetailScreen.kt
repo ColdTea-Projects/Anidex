@@ -15,7 +15,6 @@ fun ContentDetailScreen(
     screenState: State<ContentDetailScreenState>,
     onClickAddToWatchList: (Int) -> Unit,
     onCharacterClicked: (Int) -> Unit,
-    onStaffClicked: (Int) -> Unit,
     onVideoClicked: (String) -> Unit,
     onImageClicked: (String) -> Unit
 ) {
@@ -25,7 +24,6 @@ fun ContentDetailScreen(
             animeDetail = (screenState.value as Success).animeDetail,
             onClickAddToWatchList = onClickAddToWatchList,
             onCharacterClicked = onCharacterClicked,
-            onStaffClicked = onStaffClicked,
             onVideoClicked = onVideoClicked,
             onImageClicked = onImageClicked
         )

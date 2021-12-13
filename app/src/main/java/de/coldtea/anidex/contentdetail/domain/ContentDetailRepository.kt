@@ -8,6 +8,7 @@ import de.coldtea.anidex.contentdetail.data.extensions.extractPictures
 import de.coldtea.anidex.contentdetail.data.extensions.extractStaff
 import de.coldtea.anidex.contentdetail.data.extensions.extractVideos
 import de.coldtea.anidex.contentdetail.domain.model.AnimeDetail
+import kotlinx.coroutines.delay
 import timber.log.Timber
 import javax.inject.Inject
 
@@ -26,9 +27,9 @@ class ContentDetailRepository @Inject constructor(
     }
 
     private suspend fun fetchAndStore(animeId: Int){
-        val animeDetailResponse = getAnimeDetailResponse(animeId)
-        val characterAndStaffResponse = getCharacterAndStaff(animeId)
-        val picturesResponse = getPictures(animeId)
+        val animeDetailResponse = getAnimeDetailResponse(animeId).also { delay(500) }
+        val characterAndStaffResponse = getCharacterAndStaff(animeId).also { delay(500) }
+        val picturesResponse = getPictures(animeId).also { delay(500) }
         val videosResponse = getVideos(animeId)
 
         animeDetailResponse?.let { response ->

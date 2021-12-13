@@ -18,20 +18,20 @@ fun CharacterResponse.extractEntity(): CharacterEntity =
 fun CharacterResponse.extractAnimeographyEntity(characterId: Int): List<AnimePreviewEntity> =
     animeography?.map {
         AnimePreviewEntity(
-            animeId = malId.orInvalidId(),
+            animeId = it.malId.orInvalidId(),
             characterId = characterId,
-            name = name.orEmpty(),
-            url = url.orEmpty(),
-            imageUrl = imageUrl.orEmpty()
+            name = it.name.orEmpty(),
+            url = it.url.orEmpty(),
+            imageUrl = it.imageUrl.orEmpty()
         )
     }.orEmpty()
 
 fun CharacterResponse.extractVoiceActorEntity(characterId: Int): List<VoiceActorPreviewEntity> =
     voiceActors?.map {
         VoiceActorPreviewEntity(
-            voiceActorId = malId.orInvalidId(),
+            voiceActorId = it.malId.orInvalidId(),
             characterId = characterId,
-            name = name.orEmpty(),
-            imageUrl = imageUrl.orEmpty()
+            name = it.name.orEmpty(),
+            imageUrl = it.imageUrl.orEmpty()
         )
     }.orEmpty()

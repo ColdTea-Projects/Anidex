@@ -22,7 +22,6 @@ fun ContentDetailSuccess(
     animeDetail: AnimeDetail,
     onClickAddToWatchList: (Int) -> Unit,
     onCharacterClicked: (Int) -> Unit,
-    onStaffClicked: (Int) -> Unit,
     onVideoClicked: (String) -> Unit,
     onImageClicked: (String) -> Unit
 ) {
@@ -41,6 +40,6 @@ fun ContentDetailSuccess(
         CharacterSlider(modifier = Modifier
             .padding(top = 20.dp), characters = animeDetail.characters, onCharacterClicked = onCharacterClicked)
         StaffSlider(modifier = Modifier
-            .padding(top = 20.dp), staff = animeDetail.staff, onStaffClicked = onStaffClicked)
+            .padding(top = 20.dp), staff = animeDetail.staff)
     }
 }

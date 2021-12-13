@@ -1,4 +1,4 @@
-package de.coldtea.anidex.contentdetail.ui.viewitems.rows
+package de.coldtea.anidex.character.ui.viewitems.rows
 
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Column
@@ -10,30 +10,32 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.sp
 import de.coldtea.anidex.base.ui.viewitems.PreviewCardDisplay
-import de.coldtea.anidex.contentdetail.domain.model.CharacterPreview
+import de.coldtea.anidex.character.domain.model.AnimePreview
 
 @Composable
-fun CharacterSlider(
+fun AnimePreviewSlider(
     modifier: Modifier = Modifier,
-    characters: List<CharacterPreview>,
-    onCharacterClicked: (Int) -> Unit
+    animePreview: List<AnimePreview>,
+    onAnimeClicked: (Int) -> Unit
 ) {
     Column(modifier = modifier) {
-        if(characters.size > 0){
+        if (animePreview.isNotEmpty()) {
             Text(
-                text = "Characters",
+                text = "Appearance",
                 fontSize = 20.sp,
                 fontWeight = FontWeight.W500
             )
         }
-        LazyRow {
-            items(characters) { character ->
+        LazyRow(modifier = modifier) {
+            items(animePreview) { anime ->
                 PreviewCardDisplay(
-                    modifier = Modifier.clickable { onCharacterClicked(character.characterId) },
+                    modifier = Modifier.clickable {
+                          onAnimeClicked(anime.animeId)
+                    },
                     height = 180,
                     width = 115,
-                    name = character.name,
-                    imageUrl = character.imageUrl
+                    name = anime.name,
+                    imageUrl = anime.imageUrl
                 )
             }
         }

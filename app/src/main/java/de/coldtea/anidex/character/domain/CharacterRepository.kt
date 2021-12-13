@@ -8,6 +8,7 @@ import de.coldtea.anidex.character.data.extensions.extractAnimeographyEntity
 import de.coldtea.anidex.character.data.extensions.extractEntity
 import de.coldtea.anidex.character.data.extensions.extractVoiceActorEntity
 import de.coldtea.anidex.character.domain.model.Character
+import kotlinx.coroutines.delay
 import timber.log.Timber
 import javax.inject.Inject
 
@@ -26,8 +27,8 @@ class CharacterRepository @Inject constructor(
     }
 
     private suspend fun fetchAndStore(characterId: Int) {
-        val character = getCharacterResponse(characterId)
-        val characterPictures = getCharacterPictures(characterId)
+        val character = getCharacterResponse(characterId).also { delay(500) }
+        val characterPictures = getCharacterPictures(characterId).also { delay(500) }
 
         character?.apply {
             anidexDatabase.daoCharacters.insert(extractEntity())

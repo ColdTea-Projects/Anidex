@@ -16,7 +16,8 @@ val screenGroups = listOf(
 
 const val GROUP_CONTENT = "groupContent"
 const val SCREEN_CONTENT = "contentScreen"
-const val SCREEN_CONTENT_DETAIL = "contentScreenDetail"
+const val SCREEN_CONTENT_DETAIL = "contentDetailScreen"
+const val SCREEN_CHARACTER = "characterScreen"
 
 
 const val GROUP_MYLIST = "groupMyList"

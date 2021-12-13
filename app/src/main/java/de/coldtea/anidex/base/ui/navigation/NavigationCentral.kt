@@ -27,10 +27,13 @@ import androidx.navigation.compose.rememberNavController
 import de.coldtea.anidex.base.data.extensions.orInvalidId
 import de.coldtea.anidex.base.ui.navigation.model.GROUP_CONTENT
 import de.coldtea.anidex.base.ui.navigation.model.GROUP_MYLIST
+import de.coldtea.anidex.base.ui.navigation.model.SCREEN_CHARACTER
 import de.coldtea.anidex.base.ui.navigation.model.SCREEN_CONTENT
 import de.coldtea.anidex.base.ui.navigation.model.SCREEN_CONTENT_DETAIL
 import de.coldtea.anidex.base.ui.navigation.model.SCREEN_MYLIST
 import de.coldtea.anidex.base.ui.navigation.model.screenGroups
+import de.coldtea.anidex.character.ui.CharacterScreen
+import de.coldtea.anidex.character.ui.CharacterViewModel
 import de.coldtea.anidex.content.ui.ContentViewModel
 import de.coldtea.anidex.contentdetail.ui.ContentDetailScreen
 import de.coldtea.anidex.contentdetail.ui.ContentDetailViewModel
@@ -90,9 +93,10 @@ fun NavigationCentral() {
 
                         ContentDetailScreen(
                             screenState = contentDetailViewModel.contentDetailScreenState.collectAsState(),
-                            onClickAddToWatchList = { animeId -> contentDetailViewModel.addToWatchlist(animeId) },
-                            onCharacterClicked = {},
-                            onStaffClicked = {},
+                            onClickAddToWatchList = { id -> contentDetailViewModel.addToWatchlist(id) },
+                            onCharacterClicked = {id ->
+                                navController.navigate("$SCREEN_CHARACTER/$id")
+                            },
                             onVideoClicked = {
                                 val webIntent = Intent(
                                     Intent.ACTION_VIEW,
@@ -102,6 +106,17 @@ fun NavigationCentral() {
                             },
                             onImageClicked = {}
                         )
+                    }
+                    composable("$SCREEN_CHARACTER/{character_id}"){navBackStackEntry ->
+                        val characterId: String = navBackStackEntry.arguments?.getString("character_id").orEmpty()
+                        val characterViewModel = hiltViewModel<CharacterViewModel>()
+                        characterViewModel.fetchCharacter(characterId.toInt().orInvalidId())
+
+                        CharacterScreen(
+                            screenState = characterViewModel.characterScreenState.collectAsState()
+                        ){
+                            navController.navigate("$SCREEN_CONTENT_DETAIL/$it")
+                        }
                     }
                 }
                 navigation(startDestination = SCREEN_MYLIST, route = GROUP_MYLIST) {
