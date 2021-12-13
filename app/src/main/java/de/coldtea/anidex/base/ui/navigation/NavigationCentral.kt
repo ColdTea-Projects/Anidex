@@ -1,5 +1,8 @@
 package de.coldtea.anidex.base.ui.navigation
 
+import android.content.Context
+import android.content.Intent
+import android.net.Uri
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material.BottomNavigation
@@ -34,7 +37,7 @@ import de.coldtea.anidex.contentdetail.ui.ContentDetailViewModel
 import de.coldtea.anidex.ui.content.ContentScreen
 
 @Composable
-fun NavigationCentral() {
+fun NavigationCentral(context: Context) {
     val navController = rememberNavController()
 
     Scaffold(
@@ -88,7 +91,15 @@ fun NavigationCentral() {
                             screenState = contentDetailViewModel.contentDetailScreenState.collectAsState(),
                             onClickAddToWatchList = { animeId -> contentDetailViewModel.addToWatchlist(animeId) },
                             onCharacterClicked = {},
-                            onStaffClicked = {}
+                            onStaffClicked = {},
+                            onVideoClicked = {
+                                val webIntent = Intent(
+                                    Intent.ACTION_VIEW,
+                                    Uri.parse(it)
+                                )
+                                context.startActivity(webIntent)
+                            },
+                            onImageClicked = {}
                         )
                     }
                 }

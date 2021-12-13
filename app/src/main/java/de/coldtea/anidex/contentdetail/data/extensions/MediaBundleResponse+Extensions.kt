@@ -18,6 +18,7 @@ fun VideoBundleResponse.extractVideos(animeId: Int): List<AnimeDetailVideosEntit
     promo?.map {
         AnimeDetailVideosEntitiy(
             animeId = animeId,
-            url = it.videoUrl.orEmpty()
+            url = it.videoUrl.orEmpty(),
+            image = it.imageUrl.orEmpty()
         )
     }.orEmpty()

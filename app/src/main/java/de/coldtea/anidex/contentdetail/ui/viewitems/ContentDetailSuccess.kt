@@ -13,6 +13,7 @@ import de.coldtea.anidex.contentdetail.ui.viewitems.rows.AddWatchlistAndScore
 import de.coldtea.anidex.contentdetail.ui.viewitems.rows.AnimeDetailHeader
 import de.coldtea.anidex.contentdetail.ui.viewitems.rows.CharacterSlider
 import de.coldtea.anidex.contentdetail.ui.viewitems.rows.ImageAndDetails
+import de.coldtea.anidex.contentdetail.ui.viewitems.rows.MediaPager
 import de.coldtea.anidex.contentdetail.ui.viewitems.rows.StaffSlider
 
 @Composable
@@ -21,7 +22,9 @@ fun ContentDetailSuccess(
     animeDetail: AnimeDetail,
     onClickAddToWatchList: (Int) -> Unit,
     onCharacterClicked: (Int) -> Unit,
-    onStaffClicked: (Int) -> Unit
+    onStaffClicked: (Int) -> Unit,
+    onVideoClicked: (String) -> Unit,
+    onImageClicked: (String) -> Unit
 ) {
     val scrollState = rememberScrollState()
 
@@ -31,6 +34,7 @@ fun ContentDetailSuccess(
             .verticalScroll(state = scrollState)
             .padding(20.dp)
     ) {
+        MediaPager(mediaItems = animeDetail.getMediaItems(), onVideoClicked = onVideoClicked, onImageClicked = onImageClicked)
         AnimeDetailHeader(animeDetail = animeDetail)
         ImageAndDetails(animeDetail = animeDetail)
         AddWatchlistAndScore(animeDetail = animeDetail, onClickAddToWatchList = onClickAddToWatchList)

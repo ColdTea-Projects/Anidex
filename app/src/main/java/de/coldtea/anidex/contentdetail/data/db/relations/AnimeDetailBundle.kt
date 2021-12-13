@@ -89,6 +89,7 @@ data class AnimeDetailBundle(
     private fun AnimeDetailVideosEntitiy.convertToDomainObject() =
         AnimeVideos(
             animeId = animeId,
-            url = url
+            url = url,
+            image = image
         )
 }

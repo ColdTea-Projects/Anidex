@@ -15,7 +15,5 @@ data class VideoBundleResponse(
     @SerialName("request_cache_expiry")
     var requestCacheExpiry: Int?,
     @SerialName("promo")
-    var promo: List<PromoResponse>?,
-    @SerialName("episodes")
-    var episodes: List<EpisodeResponse>?
+    var promo: List<PromoResponse>?
 )

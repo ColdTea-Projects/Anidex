@@ -8,5 +8,7 @@ data class AnimeDetailVideosEntitiy(
     @ColumnInfo(name = "fk_anime_id")
     val animeId: Int,
     @ColumnInfo(name = "url")
-    val url: String
+    val url: String,
+    @ColumnInfo(name = "image")
+    val image: String
 )

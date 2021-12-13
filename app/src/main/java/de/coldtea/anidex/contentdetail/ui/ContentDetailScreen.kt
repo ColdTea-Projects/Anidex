@@ -15,7 +15,9 @@ fun ContentDetailScreen(
     screenState: State<ContentDetailScreenState>,
     onClickAddToWatchList: (Int) -> Unit,
     onCharacterClicked: (Int) -> Unit,
-    onStaffClicked: (Int) -> Unit
+    onStaffClicked: (Int) -> Unit,
+    onVideoClicked: (String) -> Unit,
+    onImageClicked: (String) -> Unit
 ) {
     when (screenState.value) {
         is Loading -> ContentDetailLoading()
@@ -23,7 +25,9 @@ fun ContentDetailScreen(
             animeDetail = (screenState.value as Success).animeDetail,
             onClickAddToWatchList = onClickAddToWatchList,
             onCharacterClicked = onCharacterClicked,
-            onStaffClicked = onStaffClicked
+            onStaffClicked = onStaffClicked,
+            onVideoClicked = onVideoClicked,
+            onImageClicked = onImageClicked
         )
         is Failed -> ContentDetailError {
 
