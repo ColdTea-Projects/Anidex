@@ -10,4 +10,8 @@ class ContentRepository @Inject constructor(
 ){
     fun getAnimesByGenre(genreId: Int) =
         anidexDatabase.daoAnime.pagingSourceByGenre(genreId = genreId)
+
+    suspend fun isBookmarked(animeId: Int) =
+        anidexDatabase.daoWatchlist.getWatchlistById(animeId).isNotEmpty()
+
 }

@@ -2,6 +2,7 @@ package de.coldtea.anidex.contentdetail.domain
 
 import de.coldtea.anidex.base.data.api.JikanApi
 import de.coldtea.anidex.base.data.db.AnidexDatabase
+import de.coldtea.anidex.contentdetail.data.db.relations.AnimeDetailBundle
 import de.coldtea.anidex.contentdetail.data.extensions.extractCharacter
 import de.coldtea.anidex.contentdetail.data.extensions.extractEntity
 import de.coldtea.anidex.contentdetail.data.extensions.extractPictures
@@ -74,5 +75,15 @@ class ContentDetailRepository @Inject constructor(
         Timber.w("Anidex --> Videos response is empty!!")
         null
     }
+
+    suspend fun getAnimeFromDB(animeId: Int): AnimeDetailBundle? = try {
+        anidexDatabase.daoAnimeDetail.getAnimeDetails(animeId).first()
+    }catch (ex: Exception){
+        Timber.w("Anidex --> Videos response is empty!!")
+        null
+    }
+
+    suspend fun isBookmarked(animeId: Int) =
+        anidexDatabase.daoWatchlist.getWatchlistById(animeId).isNotEmpty()
 
 }

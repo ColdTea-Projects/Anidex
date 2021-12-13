@@ -27,6 +27,8 @@ import de.coldtea.anidex.contentdetail.data.db.entity.AnimeDetailPicturesEntitiy
 import de.coldtea.anidex.contentdetail.data.db.entity.AnimeDetailVideosEntitiy
 import de.coldtea.anidex.contentdetail.data.db.entity.CharacterPreviewEntity
 import de.coldtea.anidex.contentdetail.data.db.entity.StaffPreviewEntity
+import de.coldtea.anidex.watchlist.data.db.dao.DaoWatchlist
+import de.coldtea.anidex.watchlist.data.db.entity.WatchlistEntity
 
 @SuppressLint("RestrictedApi")
 @Database(
@@ -44,7 +46,9 @@ import de.coldtea.anidex.contentdetail.data.db.entity.StaffPreviewEntity
         CharacterEntity::class,
         AnimePreviewEntity::class,
         VoiceActorPreviewEntity::class,
-        CharacterPictureEntity::class
+        CharacterPictureEntity::class,
+        //Watchlist
+        WatchlistEntity::class
     ],
     version = 1,
     exportSchema = false
@@ -67,6 +71,9 @@ abstract class AnidexDatabase : RoomDatabase() {
     abstract val daoAnimePreview: DaoAnimePreview
     abstract val daoVoiceActorsPreview: DaoVoiceActorsPreview
     abstract val daoCharacterPicture: DaoCharacterPicture
+
+    //My List
+    abstract val daoWatchlist: DaoWatchlist
 
     companion object {
         @Volatile

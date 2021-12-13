@@ -26,11 +26,11 @@ import androidx.navigation.compose.navigation
 import androidx.navigation.compose.rememberNavController
 import de.coldtea.anidex.base.data.extensions.orInvalidId
 import de.coldtea.anidex.base.ui.navigation.model.GROUP_CONTENT
-import de.coldtea.anidex.base.ui.navigation.model.GROUP_MYLIST
+import de.coldtea.anidex.base.ui.navigation.model.GROUP_WATCHLIST
 import de.coldtea.anidex.base.ui.navigation.model.SCREEN_CHARACTER
 import de.coldtea.anidex.base.ui.navigation.model.SCREEN_CONTENT
 import de.coldtea.anidex.base.ui.navigation.model.SCREEN_CONTENT_DETAIL
-import de.coldtea.anidex.base.ui.navigation.model.SCREEN_MYLIST
+import de.coldtea.anidex.base.ui.navigation.model.SCREEN_WATCHLIST
 import de.coldtea.anidex.base.ui.navigation.model.screenGroups
 import de.coldtea.anidex.character.ui.CharacterScreen
 import de.coldtea.anidex.character.ui.CharacterViewModel
@@ -38,6 +38,8 @@ import de.coldtea.anidex.content.ui.ContentViewModel
 import de.coldtea.anidex.contentdetail.ui.ContentDetailScreen
 import de.coldtea.anidex.contentdetail.ui.ContentDetailViewModel
 import de.coldtea.anidex.ui.content.ContentScreen
+import de.coldtea.anidex.watchlist.data.ui.WatchlistScreen
+import de.coldtea.anidex.watchlist.data.ui.WatchlistViewModel
 
 @Composable
 fun NavigationCentral() {
@@ -90,11 +92,17 @@ fun NavigationCentral() {
                         val animeId: String = navBackStackEntry.arguments?.getString("anime_id").orEmpty()
                         val contentDetailViewModel = hiltViewModel<ContentDetailViewModel>()
                         contentDetailViewModel.fetchAnimeDetail(animeId.toInt().orInvalidId())
+                        contentDetailViewModel.checkBookmarked(animeId.toInt().orInvalidId())
+
+                        val isBookmarked = contentDetailViewModel.isBookmarked.collectAsState()
 
                         ContentDetailScreen(
                             screenState = contentDetailViewModel.contentDetailScreenState.collectAsState(),
-                            onClickAddToWatchList = { id -> contentDetailViewModel.addToWatchlist(id) },
-                            onCharacterClicked = {id ->
+                            bookmarkState = isBookmarked.value,
+                            onClickAddToWatchList = { id ->
+                                contentDetailViewModel.bookmark(id)
+                            },
+                            onCharacterClicked = { id ->
                                 navController.navigate("$SCREEN_CHARACTER/$id")
                             },
                             onVideoClicked = {
@@ -107,21 +115,28 @@ fun NavigationCentral() {
                             onImageClicked = {}
                         )
                     }
-                    composable("$SCREEN_CHARACTER/{character_id}"){navBackStackEntry ->
+                    composable("$SCREEN_CHARACTER/{character_id}") { navBackStackEntry ->
                         val characterId: String = navBackStackEntry.arguments?.getString("character_id").orEmpty()
                         val characterViewModel = hiltViewModel<CharacterViewModel>()
                         characterViewModel.fetchCharacter(characterId.toInt().orInvalidId())
 
                         CharacterScreen(
                             screenState = characterViewModel.characterScreenState.collectAsState()
-                        ){
+                        ) {
                             navController.navigate("$SCREEN_CONTENT_DETAIL/$it")
                         }
                     }
                 }
-                navigation(startDestination = SCREEN_MYLIST, route = GROUP_MYLIST) {
-                    composable(SCREEN_MYLIST) {
+                navigation(startDestination = SCREEN_WATCHLIST, route = GROUP_WATCHLIST) {
+                    composable(SCREEN_WATCHLIST) {
+                        val watchlistViewModel = hiltViewModel<WatchlistViewModel>()
+                        watchlistViewModel.fetchWatchlist()
 
+                        WatchlistScreen(
+                            screenState = watchlistViewModel.watchlistScreenState.collectAsState()
+                        ){
+                            navController.navigate("$SCREEN_CONTENT_DETAIL/$id")
+                        }
                     }
                 }
             }

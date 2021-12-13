@@ -36,7 +36,10 @@ class PagingSourceManager @Inject constructor(
                 pagingSourceFactory = { contentRepository.getAnimesByGenre(genre.genreId) }
             ).flow.map { pagingData ->
                 pagingData.map {
-                    it.convertToAnime(it.genreId)
+                    it.convertToAnime(
+                        it.genreId,
+                        contentRepository.isBookmarked(it.animeId)
+                    )
                 }
             }
         }

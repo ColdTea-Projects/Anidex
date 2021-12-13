@@ -13,6 +13,7 @@ import de.coldtea.anidex.contentdetail.ui.viewitems.ContentDetailSuccess
 @Composable
 fun ContentDetailScreen(
     screenState: State<ContentDetailScreenState>,
+    bookmarkState: Boolean,
     onClickAddToWatchList: (Int) -> Unit,
     onCharacterClicked: (Int) -> Unit,
     onVideoClicked: (String) -> Unit,
@@ -22,6 +23,7 @@ fun ContentDetailScreen(
         is Loading -> ContentDetailLoading()
         is Success -> ContentDetailSuccess(
             animeDetail = (screenState.value as Success).animeDetail,
+            bookmarkState = bookmarkState,
             onClickAddToWatchList = onClickAddToWatchList,
             onCharacterClicked = onCharacterClicked,
             onVideoClicked = onVideoClicked,

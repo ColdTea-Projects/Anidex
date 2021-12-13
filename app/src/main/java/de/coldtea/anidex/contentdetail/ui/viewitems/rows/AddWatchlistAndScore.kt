@@ -18,9 +18,12 @@ import de.coldtea.anidex.contentdetail.domain.model.AnimeDetail
 @Composable
 fun AddWatchlistAndScore(
     modifier: Modifier = Modifier,
+    bookmarkState: Boolean,
     animeDetail: AnimeDetail,
     onClickAddToWatchList: (Int) -> Unit
 ){
+    val bookmarkText = if(bookmarkState){" - Remove from Watchlist "}else{" + Add to Watchlist "}
+
     Row(
         modifier = modifier.padding(top = 20.dp).fillMaxWidth(),
         horizontalArrangement = Arrangement.SpaceEvenly
@@ -31,7 +34,7 @@ fun AddWatchlistAndScore(
                 .padding(10.dp)
                 .clickable{ onClickAddToWatchList(animeDetail.animeId) }
         ) {
-            Text(text = "+ Add to Watchlist", fontSize = 16.sp, modifier = Modifier.padding(5.dp))
+            Text(text = bookmarkText, fontSize = 16.sp, modifier = Modifier.padding(5.dp))
         }
         Card(
             Modifier

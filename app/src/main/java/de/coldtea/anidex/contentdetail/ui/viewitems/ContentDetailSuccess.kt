@@ -19,6 +19,7 @@ import de.coldtea.anidex.contentdetail.ui.viewitems.rows.StaffSlider
 @Composable
 fun ContentDetailSuccess(
     modifier: Modifier = Modifier,
+    bookmarkState: Boolean,
     animeDetail: AnimeDetail,
     onClickAddToWatchList: (Int) -> Unit,
     onCharacterClicked: (Int) -> Unit,
@@ -36,7 +37,7 @@ fun ContentDetailSuccess(
         MediaPager(mediaItems = animeDetail.getMediaItems(), onVideoClicked = onVideoClicked, onImageClicked = onImageClicked)
         AnimeDetailHeader(animeDetail = animeDetail)
         ImageAndDetails(animeDetail = animeDetail)
-        AddWatchlistAndScore(animeDetail = animeDetail, onClickAddToWatchList = onClickAddToWatchList)
+        AddWatchlistAndScore(animeDetail = animeDetail, onClickAddToWatchList = onClickAddToWatchList, bookmarkState = bookmarkState)
         CharacterSlider(modifier = Modifier
             .padding(top = 20.dp), characters = animeDetail.characters, onCharacterClicked = onCharacterClicked)
         StaffSlider(modifier = Modifier
