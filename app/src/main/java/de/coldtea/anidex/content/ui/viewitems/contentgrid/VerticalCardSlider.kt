@@ -1,4 +1,4 @@
-package de.coldtea.anidex.content.ui.contentgrid
+package de.coldtea.anidex.content.ui.viewitems.contentgrid
 
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Column

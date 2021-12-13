@@ -21,4 +21,5 @@ const val GROUP_WATCHLIST = "groupWatchlist"
 const val SCREEN_WATCHLIST = "watchlistScreen"
 
 const val SCREEN_CONTENT_DETAIL = "contentDetailScreen"
+const val SCREEN_SEARCH = "searchScreen"
 const val SCREEN_CHARACTER = "characterScreen"

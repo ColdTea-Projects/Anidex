@@ -7,14 +7,15 @@ import de.coldtea.anidex.contentdetail.data.api.model.animedetail.AnimeDetailRes
 import de.coldtea.anidex.contentdetail.data.api.model.charactersandstaff.CharacterStaffResponse
 import de.coldtea.anidex.contentdetail.data.api.model.media.PictureBundleResponse
 import de.coldtea.anidex.contentdetail.data.api.model.media.VideoBundleResponse
+import de.coldtea.anidex.search.data.api.model.SearchResponse
 import retrofit2.http.GET
 import retrofit2.http.Path
+import retrofit2.http.Query
 
 interface JikanApi {
     // region Content
     @GET("genre/anime/{genre_id}/{page_number}")
     suspend fun getAnimeByGenre(@Path("genre_id") genreId: Int, @Path("page_number") pageNumber: Int): AnimesByGenreResponse?
-
     // endregion
 
     // region Anime Details
@@ -38,5 +39,11 @@ interface JikanApi {
 
     @GET("character/{character_id}/pictures")
     suspend fun getCharcterPictures(@Path("character_id") characterId: Int): CharacterPicturesResponse
+    // endregion
+
+    // region search
+    @GET("search/anime")
+    suspend fun getSearchResults(@Query("q") q: String, @Query("page") page: Int): SearchResponse
+
     // endregion
 }

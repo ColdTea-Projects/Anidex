@@ -30,6 +30,7 @@ import de.coldtea.anidex.base.ui.navigation.model.GROUP_WATCHLIST
 import de.coldtea.anidex.base.ui.navigation.model.SCREEN_CHARACTER
 import de.coldtea.anidex.base.ui.navigation.model.SCREEN_CONTENT
 import de.coldtea.anidex.base.ui.navigation.model.SCREEN_CONTENT_DETAIL
+import de.coldtea.anidex.base.ui.navigation.model.SCREEN_SEARCH
 import de.coldtea.anidex.base.ui.navigation.model.SCREEN_WATCHLIST
 import de.coldtea.anidex.base.ui.navigation.model.screenGroups
 import de.coldtea.anidex.character.ui.CharacterScreen
@@ -37,6 +38,8 @@ import de.coldtea.anidex.character.ui.CharacterViewModel
 import de.coldtea.anidex.content.ui.ContentViewModel
 import de.coldtea.anidex.contentdetail.ui.ContentDetailScreen
 import de.coldtea.anidex.contentdetail.ui.ContentDetailViewModel
+import de.coldtea.anidex.search.ui.SearchScreen
+import de.coldtea.anidex.search.ui.SearchViewModel
 import de.coldtea.anidex.ui.content.ContentScreen
 import de.coldtea.anidex.watchlist.data.ui.WatchlistScreen
 import de.coldtea.anidex.watchlist.data.ui.WatchlistViewModel
@@ -84,9 +87,15 @@ fun NavigationCentral() {
                     composable(SCREEN_CONTENT) {
                         val contentViewModel = hiltViewModel<ContentViewModel>()
 
-                        ContentScreen(viewModel = contentViewModel) { id ->
-                            navController.navigate("$SCREEN_CONTENT_DETAIL/$id")
-                        }
+                        ContentScreen(
+                            viewModel = contentViewModel,
+                            onItemClicked = { id ->
+                                navController.navigate("$SCREEN_CONTENT_DETAIL/$id")
+                            },
+                            onSearchClicked = {
+                                navController.navigate(SCREEN_SEARCH)
+                            }
+                        )
                     }
                     composable("$SCREEN_CONTENT_DETAIL/{anime_id}") { navBackStackEntry ->
                         val animeId: String = navBackStackEntry.arguments?.getString("anime_id").orEmpty()
@@ -126,6 +135,13 @@ fun NavigationCentral() {
                             navController.navigate("$SCREEN_CONTENT_DETAIL/$it")
                         }
                     }
+                    composable(SCREEN_SEARCH) { navBackStackEntry ->
+                        val searchViewModel = hiltViewModel<SearchViewModel>()
+
+                        SearchScreen(viewModel = searchViewModel){
+                            navController.navigate("$SCREEN_CONTENT_DETAIL/$it")
+                        }
+                    }
                 }
                 navigation(startDestination = SCREEN_WATCHLIST, route = GROUP_WATCHLIST) {
                     composable(SCREEN_WATCHLIST) {
@@ -134,7 +150,7 @@ fun NavigationCentral() {
 
                         WatchlistScreen(
                             screenState = watchlistViewModel.watchlistScreenState.collectAsState()
-                        ){
+                        ) {
                             navController.navigate("$SCREEN_CONTENT_DETAIL/$id")
                         }
                     }

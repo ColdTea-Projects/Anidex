@@ -7,6 +7,8 @@ import dagger.hilt.components.SingletonComponent
 import de.coldtea.anidex.base.data.SharedPreferencesRepository
 import de.coldtea.anidex.content.domain.ContentRepository
 import de.coldtea.anidex.content.domain.paingsource.PagingSourceManager
+import de.coldtea.anidex.search.domain.SearchRepository
+import de.coldtea.anidex.search.domain.SearchResultSource
 import javax.inject.Singleton
 
 @InstallIn(SingletonComponent::class)
@@ -20,5 +22,10 @@ object PagingModule {
         sharedPreferencesRepository: SharedPreferencesRepository
     ) =
         PagingSourceManager(contentRepository, sharedPreferencesRepository)
+
+
+    @Provides
+    @Singleton
+    fun provideSearchResultSource(searchRepository: SearchRepository) = SearchResultSource(searchRepository)
 
 }

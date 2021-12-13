@@ -12,6 +12,7 @@ import de.coldtea.anidex.base.data.db.AnidexDatabase
 import de.coldtea.anidex.character.domain.CharacterRepository
 import de.coldtea.anidex.content.domain.ContentRepository
 import de.coldtea.anidex.contentdetail.domain.ContentDetailRepository
+import de.coldtea.anidex.search.domain.SearchRepository
 import de.coldtea.anidex.watchlist.data.domain.WatchlistRepository
 import javax.inject.Singleton
 
@@ -22,6 +23,10 @@ object RepositoryModule {
     @Provides
     @Singleton
     fun provideSharedPreferencesRepository(@ApplicationContext appContext: Context) = SharedPreferencesRepository(appContext)
+
+    @Provides
+    @Singleton
+    fun provideSearchRepository(jikanApi: JikanApi): SearchRepository = SearchRepository(jikanApi)
 
     @Provides
     @Singleton
