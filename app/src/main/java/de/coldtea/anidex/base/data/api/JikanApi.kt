@@ -1,5 +1,7 @@
 package de.coldtea.anidex.base.data.api
 
+import de.coldtea.anidex.character.data.api.model.character.CharacterResponse
+import de.coldtea.anidex.character.data.api.model.media.CharacterPicturesResponse
 import de.coldtea.anidex.content.data.api.model.animesbygenre.AnimesByGenreResponse
 import de.coldtea.anidex.contentdetail.data.api.model.animedetail.AnimeDetailResponse
 import de.coldtea.anidex.contentdetail.data.api.model.charactersandstaff.CharacterStaffResponse
@@ -28,5 +30,13 @@ interface JikanApi {
     @GET("anime/{anime_id}/videos")
     suspend fun getAnimeDetailVideos(@Path("anime_id") animeId: Int): VideoBundleResponse?
 
+    // endregion
+
+    // region characters
+    @GET("character/{character_id}")
+    suspend fun getCharacterById(@Path("character_id") characterId: Int): CharacterResponse
+
+    @GET("character/{character_id}/pictures")
+    suspend fun getCharcterPictures(@Path("character_id") characterId: Int): CharacterPicturesResponse
     // endregion
 }

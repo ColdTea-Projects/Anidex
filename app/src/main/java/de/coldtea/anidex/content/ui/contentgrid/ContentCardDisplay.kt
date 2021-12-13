@@ -27,7 +27,6 @@ import de.coldtea.anidex.R
 import de.coldtea.anidex.base.ui.theme.deepOrange003
 import de.coldtea.anidex.base.ui.theme.materialBlackT90
 
-//https://cdn.myanimelist.net/images/anime/10/47347.jpg
 @Composable
 fun ContentCardDisplay(
     modifier: Modifier = Modifier,
@@ -36,13 +35,12 @@ fun ContentCardDisplay(
     name: String,
     imageUrl: String,
     isBookmarked: Boolean,
-    rate:Double
+    rate: Double
 ) {
     Card(
         elevation = 20.dp,
         backgroundColor = Color.Black,
-        modifier =
-        modifier
+        modifier = modifier
             .padding(start = 6.dp, end = 6.dp, top = 12.dp)
             .clip(RoundedCornerShape(10.dp))
             .height(height.dp)
@@ -54,9 +52,6 @@ fun ContentCardDisplay(
             rememberImagePainter(
                 data = imageUrl,
                 builder = {
-                    placeholder(
-                        R.drawable.ic_anime
-                    )
                     crossfade(true)
                 }
             ),

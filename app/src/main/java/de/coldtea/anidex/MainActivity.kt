@@ -21,7 +21,7 @@ class MainActivity : ComponentActivity() {
 
         setContent {
             AnidexTheme {
-                NavigationCentral(this)
+                NavigationCentral()
             }
         }
     }

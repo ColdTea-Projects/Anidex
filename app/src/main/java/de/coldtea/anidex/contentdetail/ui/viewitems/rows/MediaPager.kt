@@ -42,13 +42,7 @@ fun MediaPager(
                     contentScale = ContentScale.Crop,
                     painter =
                     rememberImagePainter(
-                        data = picture.animePictures.large,
-                        builder = {
-                            placeholder(
-                                R.drawable.ic_anime
-                            )
-                            crossfade(true)
-                        }
+                        data = picture.animePictures.large
                     ),
                     contentDescription = "Image",
                     modifier = Modifier.height(250.dp)

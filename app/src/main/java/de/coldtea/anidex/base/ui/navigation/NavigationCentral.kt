@@ -1,6 +1,5 @@
 package de.coldtea.anidex.base.ui.navigation
 
-import android.content.Context
 import android.content.Intent
 import android.net.Uri
 import androidx.compose.foundation.layout.Box
@@ -14,6 +13,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.hilt.navigation.compose.hiltViewModel
@@ -37,7 +37,7 @@ import de.coldtea.anidex.contentdetail.ui.ContentDetailViewModel
 import de.coldtea.anidex.ui.content.ContentScreen
 
 @Composable
-fun NavigationCentral(context: Context) {
+fun NavigationCentral() {
     val navController = rememberNavController()
 
     Scaffold(
@@ -71,6 +71,7 @@ fun NavigationCentral(context: Context) {
             }
         }
     ) { innerPadding ->
+        val context = LocalContext.current
         // Apply the padding globally to the whole BottomNavScreensController
         Box(modifier = Modifier.padding(innerPadding)) {
             NavHost(navController = navController, startDestination = GROUP_CONTENT) {
