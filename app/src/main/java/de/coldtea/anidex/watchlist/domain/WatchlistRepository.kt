@@ -1,9 +1,9 @@
-package de.coldtea.anidex.watchlist.data.domain
+package de.coldtea.anidex.watchlist.domain
 
 import de.coldtea.anidex.base.data.db.AnidexDatabase
 import de.coldtea.anidex.watchlist.data.db.extensions.convertToDomain
-import de.coldtea.anidex.watchlist.data.domain.extensions.convertToEntity
-import de.coldtea.anidex.watchlist.data.domain.model.Watchlist
+import de.coldtea.anidex.watchlist.domain.extensions.convertToEntity
+import de.coldtea.anidex.watchlist.domain.model.Watchlist
 import javax.inject.Inject
 
 class WatchlistRepository @Inject constructor(

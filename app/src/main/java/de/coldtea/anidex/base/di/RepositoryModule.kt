@@ -13,7 +13,7 @@ import de.coldtea.anidex.character.domain.CharacterRepository
 import de.coldtea.anidex.content.domain.ContentRepository
 import de.coldtea.anidex.contentdetail.domain.ContentDetailRepository
 import de.coldtea.anidex.search.domain.SearchRepository
-import de.coldtea.anidex.watchlist.data.domain.WatchlistRepository
+import de.coldtea.anidex.watchlist.domain.WatchlistRepository
 import javax.inject.Singleton
 
 @InstallIn(SingletonComponent::class)

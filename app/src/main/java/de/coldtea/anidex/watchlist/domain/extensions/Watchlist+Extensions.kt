@@ -1,7 +1,7 @@
-package de.coldtea.anidex.watchlist.data.domain.extensions
+package de.coldtea.anidex.watchlist.domain.extensions
 
 import de.coldtea.anidex.watchlist.data.db.entity.WatchlistEntity
-import de.coldtea.anidex.watchlist.data.domain.model.Watchlist
+import de.coldtea.anidex.watchlist.domain.model.Watchlist
 
 fun Watchlist.convertToEntity() =
     WatchlistEntity(

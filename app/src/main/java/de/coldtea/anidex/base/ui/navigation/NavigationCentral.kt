@@ -41,8 +41,8 @@ import de.coldtea.anidex.contentdetail.ui.ContentDetailViewModel
 import de.coldtea.anidex.search.ui.SearchScreen
 import de.coldtea.anidex.search.ui.SearchViewModel
 import de.coldtea.anidex.ui.content.ContentScreen
-import de.coldtea.anidex.watchlist.data.ui.WatchlistScreen
-import de.coldtea.anidex.watchlist.data.ui.WatchlistViewModel
+import de.coldtea.anidex.watchlist.ui.WatchlistScreen
+import de.coldtea.anidex.watchlist.ui.WatchlistViewModel
 
 @Composable
 fun NavigationCentral() {

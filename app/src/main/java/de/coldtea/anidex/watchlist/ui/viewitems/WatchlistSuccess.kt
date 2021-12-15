@@ -1,4 +1,4 @@
-package de.coldtea.anidex.watchlist.data.ui.viewitems
+package de.coldtea.anidex.watchlist.ui.viewitems
 
 import androidx.compose.foundation.ExperimentalFoundationApi
 import androidx.compose.foundation.clickable
@@ -9,7 +9,7 @@ import androidx.compose.foundation.lazy.items
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
-import de.coldtea.anidex.watchlist.data.domain.model.Watchlist
+import de.coldtea.anidex.watchlist.domain.model.Watchlist
 
 @OptIn(ExperimentalFoundationApi::class)
 @Composable

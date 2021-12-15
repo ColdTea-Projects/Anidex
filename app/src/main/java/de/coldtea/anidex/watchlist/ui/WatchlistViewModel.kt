@@ -1,10 +1,14 @@
-package de.coldtea.anidex.watchlist.data.ui
+package de.coldtea.anidex.watchlist.ui
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import dagger.hilt.android.lifecycle.HiltViewModel
 import de.coldtea.anidex.watchlist.data.db.extensions.convertToDomain
-import de.coldtea.anidex.watchlist.data.domain.WatchlistRepository
+import de.coldtea.anidex.watchlist.data.ui.Failed
+import de.coldtea.anidex.watchlist.data.ui.Loading
+import de.coldtea.anidex.watchlist.data.ui.Success
+import de.coldtea.anidex.watchlist.data.ui.WatchlistScreenState
+import de.coldtea.anidex.watchlist.domain.WatchlistRepository
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.asStateFlow

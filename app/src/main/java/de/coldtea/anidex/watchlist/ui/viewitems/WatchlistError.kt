@@ -1,4 +1,4 @@
-package de.coldtea.anidex.watchlist.data.ui.viewitems
+package de.coldtea.anidex.watchlist.ui.viewitems
 
 import androidx.compose.runtime.Composable
 import java.lang.reflect.Modifier

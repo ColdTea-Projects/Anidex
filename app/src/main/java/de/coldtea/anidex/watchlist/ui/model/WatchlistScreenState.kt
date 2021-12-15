@@ -1,6 +1,6 @@
 package de.coldtea.anidex.watchlist.data.ui
 
-import de.coldtea.anidex.watchlist.data.domain.model.Watchlist
+import de.coldtea.anidex.watchlist.domain.model.Watchlist
 
 sealed class WatchlistScreenState
 

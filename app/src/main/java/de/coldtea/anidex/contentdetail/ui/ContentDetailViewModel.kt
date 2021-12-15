@@ -8,8 +8,8 @@ import de.coldtea.anidex.contentdetail.ui.model.ContentDetailScreenState
 import de.coldtea.anidex.contentdetail.ui.model.Failed
 import de.coldtea.anidex.contentdetail.ui.model.Loading
 import de.coldtea.anidex.contentdetail.ui.model.Success
-import de.coldtea.anidex.watchlist.data.domain.WatchlistRepository
-import de.coldtea.anidex.watchlist.data.domain.model.Watchlist
+import de.coldtea.anidex.watchlist.domain.WatchlistRepository
+import de.coldtea.anidex.watchlist.domain.model.Watchlist
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.asStateFlow

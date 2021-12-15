@@ -1,4 +1,4 @@
-package de.coldtea.anidex.watchlist.data.domain.model
+package de.coldtea.anidex.watchlist.domain.model
 
 data class Watchlist(
     val animeId: Int,
