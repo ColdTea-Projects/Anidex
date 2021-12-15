@@ -44,14 +44,16 @@ class CharacterRepository @Inject constructor(
     }
 
     private suspend fun getCharacterResponse(characterId: Int): CharacterResponse? = try {
-        jikanApi.getCharacterById(characterId)
+        if(anidexDatabase.daoCharacters.getCharacterCount(characterId) > 0) null
+        else jikanApi.getCharacterById(characterId)
     } catch (ex: Exception) {
         Timber.w("Anidex --> Character response is empty!!")
         null
     }
 
     private suspend fun getCharacterPictures(characterId: Int): CharacterPicturesResponse? = try {
-        jikanApi.getCharcterPictures(characterId)
+        if(anidexDatabase.daoCharacterPicture.getCharacterPictureCount(characterId) > 0) null
+        else jikanApi.getCharcterPictures(characterId)
     } catch (ex: Exception) {
         Timber.w("Anidex --> Character picture response is empty!!")
         null

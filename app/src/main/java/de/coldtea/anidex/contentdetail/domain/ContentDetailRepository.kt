@@ -17,7 +17,7 @@ class ContentDetailRepository @Inject constructor(
     val jikanApi: JikanApi,
     val anidexDatabase: AnidexDatabase
 ) {
-    suspend fun getAnimeDetail(animeId: Int): AnimeDetail{
+    suspend fun getAnimeDetail(animeId: Int): AnimeDetail {
         fetchAndStore(animeId)
 
         return anidexDatabase
@@ -27,7 +27,7 @@ class ContentDetailRepository @Inject constructor(
             .convertToDomainObject()
     }
 
-    private suspend fun fetchAndStore(animeId: Int){
+    private suspend fun fetchAndStore(animeId: Int) {
         val animeDetailResponse = getAnimeDetailResponse(animeId).also { delay(500) }
         val characterAndStaffResponse = getCharacterAndStaff(animeId).also { delay(500) }
         val picturesResponse = getPictures(animeId).also { delay(500) }
@@ -49,36 +49,42 @@ class ContentDetailRepository @Inject constructor(
     }
 
     private suspend fun getAnimeDetailResponse(animeId: Int) = try {
-        jikanApi.getAnimeDetailById(animeId)
-    }catch (ex: Exception){
+        if (anidexDatabase.daoAnimeDetail.getAnimeCount(animeId) > 0) null
+        else jikanApi.getAnimeDetailById(animeId)
+    } catch (ex: Exception) {
         Timber.w("Anidex --> Anime detail response is empty!!")
         null
     }
 
     private suspend fun getCharacterAndStaff(animeId: Int) = try {
-        jikanApi.getCharactersAndStaff(animeId)
-    }catch (ex: Exception){
+        if (anidexDatabase.daoCharacterPreview.getCharacterCount(animeId) > 0
+            && anidexDatabase.daoStaffPreview.getStaffCount(animeId) > 0
+        ) null
+        else jikanApi.getCharactersAndStaff(animeId)
+    } catch (ex: Exception) {
         Timber.w("Anidex --> Character and staff response is empty!!")
         null
     }
 
     private suspend fun getPictures(animeId: Int) = try {
-        jikanApi.getAnimeDetailPictures(animeId)
-    }catch (ex: Exception){
+        if (anidexDatabase.daoAnimeDetailPictures.getAnimeDetailPictureCount(animeId) > 0) null
+        else jikanApi.getAnimeDetailPictures(animeId)
+    } catch (ex: Exception) {
         Timber.w("Anidex --> Pictures response is empty!!")
         null
     }
 
     private suspend fun getVideos(animeId: Int) = try {
-        jikanApi.getAnimeDetailVideos(animeId)
-    }catch (ex: Exception){
+        if (anidexDatabase.daoAnimeDetailVideos.getAnimeDetailVideosCount(animeId) > 0) null
+        else jikanApi.getAnimeDetailVideos(animeId)
+    } catch (ex: Exception) {
         Timber.w("Anidex --> Videos response is empty!!")
         null
     }
 
     suspend fun getAnimeFromDB(animeId: Int): AnimeDetailBundle? = try {
         anidexDatabase.daoAnimeDetail.getAnimeDetails(animeId).first()
-    }catch (ex: Exception){
+    } catch (ex: Exception) {
         Timber.w("Anidex --> Videos response is empty!!")
         null
     }

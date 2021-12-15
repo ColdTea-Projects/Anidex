@@ -151,7 +151,7 @@ fun NavigationCentral() {
                         WatchlistScreen(
                             screenState = watchlistViewModel.watchlistScreenState.collectAsState()
                         ) {
-                            navController.navigate("$SCREEN_CONTENT_DETAIL/$id")
+                            navController.navigate("$SCREEN_CONTENT_DETAIL/$it")
                         }
                     }
                 }

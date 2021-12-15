@@ -13,4 +13,8 @@ interface DaoCharacters: DaoBase<CharacterEntity> {
     @Transaction
     @Query("SELECT * FROM character WHERE character_id = :characterId")
     suspend fun getCharacter(characterId: Int): List<CharacterBundle>
+
+    @Transaction
+    @Query("SELECT COUNT(*) FROM character WHERE character_id = :characterId")
+    suspend fun getCharacterCount(characterId: Int): Int
 }
