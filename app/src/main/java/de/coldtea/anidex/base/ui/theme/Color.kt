@@ -8,6 +8,8 @@ val deepOrange001 = Color(0xFFDD2C00)
 val deepOrange002 = Color(0xFFFF6434)
 val deepOrange003 = Color(0xFFA30000)
 
+val gold001 = Color(0xFFFFC107)
+
 val blueGray001 = Color(0xFF263238)
 val blueGray002 = Color(0xFF4F5B62)
 val blueGrayLight = Color(0xFFDEE6EB)

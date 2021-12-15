@@ -17,7 +17,8 @@ fun SearchScreen(
     Scaffold(
         topBar = {
             SearchTopBar(
-                modifier = Modifier.height(50.dp),
+                modifier = Modifier
+                    .height(50.dp),
                 text = text,
                 onTextChanged = { text = it },
                 onSearchClicked = {
