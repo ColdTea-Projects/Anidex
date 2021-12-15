@@ -30,8 +30,8 @@ class PagingSourceManager @Inject constructor(
                 ),
                 remoteMediator = JikanRemoteMediator(
                     genreId = genre.genreId,
-                    api = contentRepository.jikanApi,
-                    db = contentRepository.anidexDatabase
+                    jikanApi = contentRepository.jikanApi,
+                    anidexDatabase = contentRepository.anidexDatabase
                 ),
                 pagingSourceFactory = { contentRepository.getAnimesByGenre(genre.genreId) }
             ).flow.map { pagingData ->
@@ -49,7 +49,7 @@ class PagingSourceManager @Inject constructor(
         val genres = sharedPreferencesRepository.lastFetchedGenres ?: return listOf()
 
         if(sharedPreferencesRepository.isGenreRandomized){
-            val randomizeOrdinal = Random.nextInt(0, 9)
+            val randomizeOrdinal = Random.nextInt(0, 5)
             var randomizedGenre: Int
 
             do {
@@ -68,7 +68,7 @@ class PagingSourceManager @Inject constructor(
     }
 
     companion object{
-        const val PAGE_SIZE = 100
+        const val PAGE_SIZE = 20
         const val RESPECTFUL_WAIT_TIME = 2_000L
     }
 }

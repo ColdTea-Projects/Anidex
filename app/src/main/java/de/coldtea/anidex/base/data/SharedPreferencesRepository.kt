@@ -21,9 +21,6 @@ class SharedPreferencesRepository(context: Context) {
                     AnimeGenre.FANTASY.genreId.toString(),
                     AnimeGenre.SHOUNEN.genreId.toString(),
                     AnimeGenre.SUPER_POWER.genreId.toString(),
-                    AnimeGenre.MILITARY.genreId.toString(),
-                    AnimeGenre.BOYS_LOVE.genreId.toString(),
-                    AnimeGenre.GIRLS_LOVE.genreId.toString(),
                     AnimeGenre.VAMPIRE.genreId.toString()
                 )
             )
