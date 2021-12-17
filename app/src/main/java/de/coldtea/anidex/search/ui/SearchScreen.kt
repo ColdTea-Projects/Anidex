@@ -18,7 +18,7 @@ fun SearchScreen(
         topBar = {
             SearchTopBar(
                 modifier = Modifier
-                    .height(50.dp),
+                    .height(60.dp),
                 text = text,
                 onTextChanged = { text = it },
                 onSearchClicked = {

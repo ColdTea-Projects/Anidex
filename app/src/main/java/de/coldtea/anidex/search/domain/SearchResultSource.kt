@@ -13,7 +13,7 @@ class SearchResultSource(
 
     override suspend fun load(
         params: LoadParams<Int>
-    ): LoadResult<Int, ResultResponse> {
+    ): LoadResult<Int, ResultResponse> = kotlin.runCatching {
         nextPage = params.key ?: 1
         val results = searchRepository
             .getSearchResult(query, nextPage)
@@ -27,11 +27,15 @@ class SearchResultSource(
             LoadResult.Page(
                 data = results,
                 prevKey =
-                    if (nextPage == 1) null
-                    else nextPage - 1,
+                if (nextPage == 1) null
+                else nextPage - 1,
                 nextKey = nextPage.plus(1)
             )
         }
+    }.getOrElse {
+        LoadResult.Error(
+            Exception("Empty result")
+        )
     }
 
     override fun getRefreshKey(state: PagingState<Int, ResultResponse>): Int? {

@@ -71,7 +71,7 @@ fun SearchTopBar(
         ) {
             Icon(
                 modifier = Modifier
-                    .size(50.dp)
+                    .size(60.dp)
                     .padding(10.dp),
                 painter = painterResource(id = R.drawable.ic_baseline_search_24),
                 contentDescription = null,
