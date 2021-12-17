@@ -9,6 +9,10 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
 import androidx.paging.compose.collectAsLazyPagingItems
+import de.coldtea.anidex.R
+import de.coldtea.anidex.base.ui.theme.deepOrange003
+import de.coldtea.anidex.base.ui.theme.materialWhite
+import de.coldtea.anidex.base.ui.viewitems.NetworkStateWrapper
 import de.coldtea.anidex.base.ui.viewitems.SearchTopBar
 import de.coldtea.anidex.content.ui.ContentViewModel
 import de.coldtea.anidex.content.ui.viewitems.contentgrid.ContentShelf
@@ -26,12 +30,24 @@ fun ContentScreen(
     Scaffold(
         modifier = Modifier.background(Color.Red),
         topBar = {
-            SearchTopBar(modifier = Modifier.height(50.dp).clickable {
-                onSearchClicked()
-            }, text = "Search...", onTextChanged = {}, onSearchClicked = { onSearchClicked() }, textEnabled = false)
+            SearchTopBar(modifier = Modifier
+                .height(50.dp)
+                .clickable {
+                    onSearchClicked()
+                }, text = "Search...", onTextChanged = {}, onSearchClicked = { onSearchClicked() }, textEnabled = false
+            )
         },
         content = {
-            ContentShelf(sections = sections, onItemClicked = onItemClicked)
+            NetworkStateWrapper(
+                backgroundColor = deepOrange003,
+                foregroundColor = materialWhite,
+                icon = R.drawable.ic_baseline_signal_wifi_off_24,
+                text = "No internet connection :(",
+                heightDp = 45,
+                fontSizeSp = 20
+            ) {
+                ContentShelf(sections = sections, onItemClicked = onItemClicked)
+            }
         }
     )
 }
