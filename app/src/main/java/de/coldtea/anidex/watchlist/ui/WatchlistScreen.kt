@@ -36,9 +36,7 @@ fun WatchlistScreen(
                 (screenState.value as Success).watchlist,
                 onClicked = onClicked
             )
-            is Failed -> WatchlistError {
-
-            }
+            is Failed -> WatchlistError()
         }
     }
 }
