@@ -28,10 +28,11 @@ import de.coldtea.anidex.base.ui.theme.materialBlack
 //https://cdn.myanimelist.net/images/anime/10/47347.jpg
 @OptIn(ExperimentalAnimationApi::class)
 @Composable
-fun LoadingCard(
+fun LoadingCardStripe(
     modifier: Modifier = Modifier,
     height: Int,
-    width: Int
+    width: Int,
+    stripeSize: Int = 3
 ) {
     val initialColor = if(isSystemInDarkTheme()) blueGrayDark else blueGray002
     val duration = if(isSystemInDarkTheme()) 4_000 else 2_000
@@ -73,7 +74,7 @@ fun LoadingCard(
 )
 @Composable
 fun PreviewLoadingCardLight(){
-    LoadingCard(height = 180, width = 115)
+    LoadingCardStripe(height = 180, width = 115)
 }
 
 @Preview(
@@ -83,5 +84,5 @@ fun PreviewLoadingCardLight(){
 )
 @Composable
 fun PreviewLoadingCardDark(){
-    LoadingCard(height = 180, width = 115)
+    LoadingCardStripe(height = 180, width = 115)
 }

@@ -50,10 +50,10 @@ fun VerticalCardSlider(
                 animes.apply {
                     when {
                         loadState.refresh is LoadState.Loading -> {
-                            item { LoadingCard(height = cardHeight, width = cardWidth) }
+                            item { LoadingCardStripe(height = cardHeight, width = cardWidth) }
                         }
                         loadState.append is LoadState.Loading -> {
-                            item { LoadingCard(height = cardHeight, width = cardWidth) }
+                            item { LoadingCardStripe(height = cardHeight, width = cardWidth) }
                         }
                         loadState.refresh is LoadState.Error -> {
 //                        val e = loadState.refresh as LoadState.Error

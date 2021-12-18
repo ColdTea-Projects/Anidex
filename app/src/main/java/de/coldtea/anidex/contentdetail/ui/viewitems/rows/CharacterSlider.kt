@@ -10,6 +10,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.sp
 import de.coldtea.anidex.base.ui.viewitems.PreviewCardDisplay
+import de.coldtea.anidex.content.ui.viewitems.contentgrid.LoadingCardStripe
 import de.coldtea.anidex.contentdetail.domain.model.CharacterPreview
 
 @Composable
@@ -19,23 +20,29 @@ fun CharacterSlider(
     onCharacterClicked: (Int) -> Unit
 ) {
     Column(modifier = modifier) {
-        if(characters.size > 0){
-            Text(
-                text = "Characters",
-                fontSize = 20.sp,
-                fontWeight = FontWeight.W500
+        Text(
+            text = "Characters",
+            fontSize = 20.sp,
+            fontWeight = FontWeight.W500
+        )
+        if (characters.size > 0) {
+            LazyRow {
+                items(characters) { character ->
+                    PreviewCardDisplay(
+                        modifier = Modifier.clickable { onCharacterClicked(character.characterId) },
+                        height = 180,
+                        width = 115,
+                        name = character.name,
+                        imageUrl = character.imageUrl
+                    )
+                }
+            }
+        } else {
+            LoadingCardStripe(
+                height = 180,
+                width = 115
             )
         }
-        LazyRow {
-            items(characters) { character ->
-                PreviewCardDisplay(
-                    modifier = Modifier.clickable { onCharacterClicked(character.characterId) },
-                    height = 180,
-                    width = 115,
-                    name = character.name,
-                    imageUrl = character.imageUrl
-                )
-            }
-        }
+
     }
 }
