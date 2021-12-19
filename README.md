@@ -8,4 +8,4 @@ Following gifs present main display, anime detail screen, watchlist& character d
 
 [![anidex-376066c3b503d3041.gif](https://s10.gifyu.com/images/anidex-376066c3b503d3041.gif)](https://gifyu.com/image/SS9xV) [![anidex-4a2fd4683c50051b2.gif](https://s10.gifyu.com/images/anidex-4a2fd4683c50051b2.gif)](https://gifyu.com/image/SS9xZ)
 
-trello borad: https://trello.com/b/q5nPTmnT/anidex
+trello board: https://trello.com/b/q5nPTmnT/anidex
