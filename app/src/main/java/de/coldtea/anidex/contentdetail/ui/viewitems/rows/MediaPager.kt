@@ -12,6 +12,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import coil.compose.rememberImagePainter
 import com.google.accompanist.pager.ExperimentalPagerApi
@@ -44,7 +45,7 @@ fun MediaPager(
                     rememberImagePainter(
                         data = picture.animePictures.large
                     ),
-                    contentDescription = "Image",
+                    contentDescription = stringResource(R.string.media_pager_image_desc),
                     modifier = Modifier.height(250.dp)
                 )
             }
@@ -59,7 +60,7 @@ fun MediaPager(
                         rememberImagePainter(
                             data = video.animeVideos.image
                         ),
-                        contentDescription = "Image",
+                        contentDescription = stringResource(R.string.media_pager_video_desc),
                         modifier = Modifier
                             .fillMaxSize()
                     )
@@ -67,7 +68,7 @@ fun MediaPager(
                         painter = painterResource(
                             id = R.drawable.ic_baseline_play_circle_outline_24
                         ),
-                        contentDescription = "Bookmark",
+                        contentDescription = stringResource(R.string.play_button_desc),
                         modifier = Modifier
                             .fillMaxSize()
                             .clickable { onVideoClicked(video.animeVideos.url) }

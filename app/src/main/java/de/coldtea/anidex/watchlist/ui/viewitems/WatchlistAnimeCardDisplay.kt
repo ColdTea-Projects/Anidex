@@ -16,11 +16,13 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import coil.compose.rememberImagePainter
+import de.coldtea.anidex.R
 import de.coldtea.anidex.base.ui.theme.deepOrange003
 import de.coldtea.anidex.base.ui.theme.materialBlackT90
 
@@ -50,7 +52,7 @@ fun WatchlistAnimeCardDisplay(modifier: Modifier = Modifier,
                     crossfade(true)
                 }
             ),
-            contentDescription = "Image",
+            contentDescription = stringResource(R.string.watchlist_card_image_desc),
             modifier = Modifier
                 .fillMaxSize()
         )

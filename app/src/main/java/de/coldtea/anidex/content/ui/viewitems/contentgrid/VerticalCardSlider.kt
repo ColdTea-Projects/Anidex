@@ -56,7 +56,6 @@ fun VerticalCardSlider(
                             item { LoadingCardStripe(height = cardHeight, width = cardWidth) }
                         }
                         loadState.refresh is LoadState.Error -> {
-//                        val e = loadState.refresh as LoadState.Error
                             item {
                                 ErrorItem(
                                     onClickRetry = {
@@ -68,7 +67,6 @@ fun VerticalCardSlider(
                             }
                         }
                         loadState.append is LoadState.Error -> {
-//                        val e = loadState.append as LoadState.Error
                             item {
                                 ErrorItem(
                                     onClickRetry = {

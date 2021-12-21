@@ -15,6 +15,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
@@ -53,7 +54,7 @@ fun NetworkStateWrapper(
                     painter = painterResource(
                         id = icon
                     ),
-                    contentDescription = "No internet",
+                    contentDescription = stringResource(R.string.no_internet_content_desc),
                     tint = foregroundColor
                 )
                 Text(
@@ -76,7 +77,7 @@ fun PreviewNoInternet() {
         backgroundColor = deepOrange003,
         foregroundColor = materialWhite,
         icon = R.drawable.ic_baseline_signal_wifi_off_24,
-        text = "No internet connection :(",
+        text = stringResource(R.string.no_internet_error),
         heightDp = 45,
         fontSizeSp = 20
     ) {

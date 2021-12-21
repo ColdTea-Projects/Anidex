@@ -2,6 +2,7 @@ package de.coldtea.anidex.contentdetail.ui
 
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.State
+import androidx.compose.ui.res.stringResource
 import de.coldtea.anidex.R
 import de.coldtea.anidex.base.ui.theme.deepOrange003
 import de.coldtea.anidex.base.ui.theme.materialWhite
@@ -27,7 +28,7 @@ fun ContentDetailScreen(
         backgroundColor = deepOrange003,
         foregroundColor = materialWhite,
         icon = R.drawable.ic_baseline_signal_wifi_off_24,
-        text = "No internet connection :(",
+        text = stringResource(R.string.no_internet_error),
         heightDp = 45,
         fontSizeSp = 20
     ) {

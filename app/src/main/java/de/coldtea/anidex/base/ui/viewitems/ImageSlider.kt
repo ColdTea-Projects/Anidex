@@ -9,8 +9,10 @@ import androidx.compose.foundation.lazy.items
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.layout.ContentScale
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import coil.compose.rememberImagePainter
+import de.coldtea.anidex.R
 
 @Composable
 fun ImageSlider(
@@ -33,7 +35,7 @@ fun ImageSlider(
                         crossfade(true)
                     }
                 ),
-                contentDescription = "Image",
+                contentDescription = stringResource(R.string.image_slider_item_content_desc),
                 modifier = Modifier
                     .height(280.dp)
                     .width(200.dp)

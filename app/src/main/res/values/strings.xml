@@ -1,5 +1,24 @@
 <resources>
     <string name="app_name">Anidex</string>
-    <string name="group_content">Animes/Mangas</string>
+    <string name="group_content">Animes</string>
     <string name="group_watchlist">Watchlist</string>
+    <string name="no_internet_error">No internet connection :(</string>
+    <string name="no_internet_content_desc">No internet</string>
+    <string name="image_slider_item_content_desc">Image slider item</string>
+    <string name="preview_card_image_item_content_desc">Preview card image item</string>
+    <string name="preview_slider_appearence_header">Appearance</string>
+    <string name="preview_slider_voice_actors_header">Voice Actors</string>
+    <string name="search_bar_default">Search...</string>
+    <string name="content_card_image_desc">Content card image</string>
+    <string name="search_result_image_desc">Search result image</string>
+    <string name="watchlist_card_image_desc">Watchlist card image</string>
+    <string name="watchlist_loading_error">Something went wrong please try again!</string>
+    <string name="wathclist_placeholder_message">Please add some animes to the watchlist to display on this screen</string>
+    <string name="remove_from_watchlist"> Remove from Watchlist </string>
+    <string name="add_to_watchlist"> Add to Watchlist </string>
+    <string name="character_slider_header">Characters</string>
+    <string name="media_pager_image_desc">Media pager image</string>
+    <string name="media_pager_video_desc">Media pager video</string>
+    <string name="play_button_desc">Play button</string>
+    <string name="staff_header">Staff</string>
 </resources>

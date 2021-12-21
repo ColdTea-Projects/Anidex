@@ -22,7 +22,7 @@ fun ContentShelf(
                 onItemClicked = onItemClicked,
                 cardHeight = 180,
                 cardWidth = 115
-            )//250/160
+            )
         }
     }, state = lazyListState)
 

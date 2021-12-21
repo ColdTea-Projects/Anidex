@@ -1,6 +1,8 @@
 package de.coldtea.anidex.watchlist.ui.viewitems
 
 import androidx.compose.runtime.Composable
+import androidx.compose.ui.res.stringResource
+import de.coldtea.anidex.R
 import de.coldtea.anidex.base.ui.viewitems.FullMessageScreen
 import java.lang.reflect.Modifier
 
@@ -8,5 +10,5 @@ import java.lang.reflect.Modifier
 fun WatchlistError(
     modifier: Modifier = Modifier()
 ){
-    FullMessageScreen(message = "Something went wron please try again!")
+    FullMessageScreen(message = stringResource(R.string.watchlist_loading_error))
 }

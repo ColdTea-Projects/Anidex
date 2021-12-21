@@ -4,6 +4,7 @@ import androidx.compose.foundation.layout.height
 import androidx.compose.material.Scaffold
 import androidx.compose.runtime.*
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import de.coldtea.anidex.R
 import de.coldtea.anidex.base.ui.theme.deepOrange003
@@ -36,7 +37,7 @@ fun SearchScreen(
                 backgroundColor = deepOrange003,
                 foregroundColor = materialWhite,
                 icon = R.drawable.ic_baseline_signal_wifi_off_24,
-                text = "No internet connection :(",
+                text = stringResource(R.string.no_internet_error),
                 heightDp = 45,
                 fontSizeSp = 20
             ) {

@@ -7,6 +7,7 @@ import androidx.compose.material.Scaffold
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import androidx.paging.compose.collectAsLazyPagingItems
 import de.coldtea.anidex.R
@@ -34,7 +35,7 @@ fun ContentScreen(
                 .height(50.dp)
                 .clickable {
                     onSearchClicked()
-                }, text = "Search...", onTextChanged = {}, onSearchClicked = { onSearchClicked() }, textEnabled = false
+                }, text = stringResource(R.string.search_bar_default), onTextChanged = {}, onSearchClicked = { onSearchClicked() }, textEnabled = false
             )
         },
         content = {
@@ -42,7 +43,7 @@ fun ContentScreen(
                 backgroundColor = deepOrange003,
                 foregroundColor = materialWhite,
                 icon = R.drawable.ic_baseline_signal_wifi_off_24,
-                text = "No internet connection :(",
+                text = stringResource(R.string.no_internet_error),
                 heightDp = 45,
                 fontSizeSp = 20
             ) {

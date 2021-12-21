@@ -8,7 +8,9 @@ import androidx.compose.foundation.lazy.LazyVerticalGrid
 import androidx.compose.foundation.lazy.items
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
+import de.coldtea.anidex.R
 import de.coldtea.anidex.base.ui.viewitems.FullMessageScreen
 import de.coldtea.anidex.watchlist.domain.model.Watchlist
 
@@ -20,7 +22,7 @@ fun WatchlistSuccess(
     onClicked: (Int) -> Unit
 ) {
     if(watchlist.size == 0){
-        FullMessageScreen(message = "Please add some animes to the watchlist to display on this screen")
+        FullMessageScreen(message = stringResource(R.string.wathclist_placeholder_message))
     }else{
         LazyVerticalGrid(
             cells = GridCells.Fixed(3),

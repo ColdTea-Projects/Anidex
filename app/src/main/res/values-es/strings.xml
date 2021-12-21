@@ -1,0 +1,24 @@
+<resources>
+    <string name="app_name">Anidex</string>
+    <string name="group_content">Animes</string>
+    <string name="group_watchlist">Lista de seguimiento</string>
+    <string name="no_internet_error">Sin conexión a Internet :(</string>
+    <string name="no_internet_content_desc">Sin internet</string>
+    <string name="image_slider_item_content_desc">Elemento del control deslizante de imagen</string>
+    <string name="preview_card_image_item_content_desc">Elemento de imagen de tarjeta de vista previa</string>
+    <string name="preview_slider_appearence_header">Apariencia</string>
+    <string name="preview_slider_voice_actors_header">Actores de doblaje</string>
+    <string name="search_bar_default">Búsqueda...</string>
+    <string name="content_card_image_desc">Imagen de la tarjeta de contenido</string>
+    <string name="search_result_image_desc">Imagen de resultado de búsqueda</string>
+    <string name="watchlist_card_image_desc">Imagen de la tarjeta de lista de seguimiento</string>
+    <string name="watchlist_loading_error">¡Algo salió mal. Por favor, vuelva a intentarlo!</string>
+    <string name="wathclist_placeholder_message">Agregue algunos animes a la lista de observación para mostrar en esta pantalla</string>
+    <string name="remove_from_watchlist">Eliminar de la lista de seguimiento</string>
+    <string name="add_to_watchlist">Añadir a lista de seguimiento</string>
+    <string name="character_slider_header">Caracteres</string>
+    <string name="media_pager_image_desc">Imagen del buscapersonas</string>
+    <string name="media_pager_video_desc">Video del buscapersonas</string>
+    <string name="play_button_desc">Botón de play</string>
+    <string name="staff_header">Personal </string>
+</resources>

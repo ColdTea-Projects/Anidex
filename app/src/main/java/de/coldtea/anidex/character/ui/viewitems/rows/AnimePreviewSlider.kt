@@ -7,8 +7,10 @@ import androidx.compose.foundation.lazy.items
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.sp
+import de.coldtea.anidex.R
 import de.coldtea.anidex.base.ui.viewitems.PreviewCardDisplay
 import de.coldtea.anidex.character.domain.model.AnimePreview
 
@@ -21,7 +23,7 @@ fun AnimePreviewSlider(
     Column(modifier = modifier) {
         if (animePreview.isNotEmpty()) {
             Text(
-                text = "Appearance",
+                text = stringResource(R.string.preview_slider_appearence_header),
                 fontSize = 20.sp,
                 fontWeight = FontWeight.W500
             )

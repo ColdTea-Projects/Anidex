@@ -1,0 +1,24 @@
+<resources>
+    <string name="app_name">Anidex</string>
+    <string name="group_content">Animes</string>
+    <string name="group_watchlist">Beobachtungsliste</string>
+    <string name="no_internet_error">Keine Internetverbindung :(</string>
+    <string name="no_internet_content_desc">Kein Internet</string>
+    <string name="image_slider_item_content_desc">Bild-Slider-Element</string>
+    <string name="preview_card_image_item_content_desc">Kartenbildelement in der Vorschau anzeigen</string>
+    <string name="preview_slider_appearence_header">Das Auftreten</string>
+    <string name="preview_slider_voice_actors_header">Synchronsprecher</string>
+    <string name="search_bar_default">Suche...</string>
+    <string name="content_card_image_desc">Bild der Inhaltskarte</string>
+    <string name="search_result_image_desc">Suchergebnisbild</string>
+    <string name="watchlist_card_image_desc">Bild der Watchlist-Karte</string>
+    <string name="watchlist_loading_error">Etwas ist schief gelaufen. Bitte versuche es erneut!</string>
+    <string name="wathclist_placeholder_message">Bitte fügen Sie der Watchlist einige Animes hinzu, die auf diesem Bildschirm angezeigt werden sollen</string>
+    <string name="remove_from_watchlist">Entfernen</string>
+    <string name="add_to_watchlist">Hinzufügen</string>
+    <string name="character_slider_header">Zeichen</string>
+    <string name="media_pager_image_desc">Bild des Medienpagers</string>
+    <string name="media_pager_video_desc">Media-Pager-Video</string>
+    <string name="play_button_desc">Play-Taste</string>
+    <string name="staff_header">Mitarbeiter </string>
+</resources>

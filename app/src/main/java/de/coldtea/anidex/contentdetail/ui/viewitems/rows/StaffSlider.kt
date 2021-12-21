@@ -6,8 +6,10 @@ import androidx.compose.foundation.lazy.items
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.sp
+import de.coldtea.anidex.R
 import de.coldtea.anidex.base.ui.viewitems.PreviewCardDisplay
 import de.coldtea.anidex.content.ui.viewitems.contentgrid.LoadingCardStripe
 import de.coldtea.anidex.contentdetail.domain.model.StaffPreview
@@ -19,7 +21,7 @@ fun StaffSlider(
 ) {
     Column(modifier = modifier) {
         Text(
-            text = "Staff",
+            text = stringResource(R.string.staff_header),
             fontSize = 20.sp,
             fontWeight = FontWeight.W500
         )

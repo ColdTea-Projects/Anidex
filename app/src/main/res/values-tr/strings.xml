@@ -1,0 +1,24 @@
+<resources>
+    <string name="app_name">Anidex</string>
+    <string name="group_content">Animeler</string>
+    <string name="group_watchlist">İzlenecekler</string>
+    <string name="no_internet_error">İnternet bağlantısı yok :(</string>
+    <string name="no_internet_content_desc">İnternet bağlantısı yok</string>
+    <string name="image_slider_item_content_desc">Resim kaydiracagı</string>
+    <string name="preview_card_image_item_content_desc">Önizleme kartı resim öğesi</string>
+    <string name="preview_slider_appearence_header">Görüldüğü yapımlar</string>
+    <string name="preview_slider_voice_actors_header">Seslendirenler</string>
+    <string name="search_bar_default">Arama...</string>
+    <string name="content_card_image_desc">İçerik kartı resmi</string>
+    <string name="search_result_image_desc">Arama sonucu resmi</string>
+    <string name="watchlist_card_image_desc">İzlenecekler listesi kartı resmi</string>
+    <string name="watchlist_loading_error">Bir şeyler ters gitti lütfen tekrar deneyin!</string>
+    <string name="wathclist_placeholder_message">Lütfen bu ekranda görüntülemek için izleme listesine bazı animeler ekleyiniz</string>
+    <string name="remove_from_watchlist"> İzleneceklerden kaldır </string>
+    <string name="add_to_watchlist"> İzleneceklere ekle </string>
+    <string name="character_slider_header">Karakterler</string>
+    <string name="media_pager_image_desc">Medya galerisi / resim</string>
+    <string name="media_pager_video_desc">Medya galerisi / video</string>
+    <string name="play_button_desc">Oynat tuşu</string>
+    <string name="staff_header">Kadro</string>
+</resources>
