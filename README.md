@@ -10,7 +10,7 @@ Following gifs present main display, anime detail screen, watchlist& character d
 
 trello board: https://trello.com/b/q5nPTmnT/anidex
 
-MAD Scorecards: 
+MAD Scorecards-22.12.2021: 
 
 ![alt text](https://github.com/ColdTea-Projects/Anidex/blob/main/mad_scorecard/summary.png?raw=true)
 
