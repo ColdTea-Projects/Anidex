@@ -9,7 +9,7 @@ import dagger.hilt.components.SingletonComponent
 import de.coldtea.anidex.base.data.SharedPreferencesRepository
 import de.coldtea.anidex.base.data.api.JikanApi
 import de.coldtea.anidex.base.data.db.AnidexDatabase
-import de.coldtea.anidex.character.domain.CharacterRepository
+import de.coldtea.anidex.character.data.CharacterRepository
 import de.coldtea.anidex.content.domain.ContentRepository
 import de.coldtea.anidex.contentdetail.domain.ContentDetailRepository
 import de.coldtea.anidex.search.domain.SearchRepository

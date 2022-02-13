@@ -3,7 +3,7 @@ package de.coldtea.anidex.character.ui
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import dagger.hilt.android.lifecycle.HiltViewModel
-import de.coldtea.anidex.character.domain.CharacterRepository
+import de.coldtea.anidex.character.domain.AcquireCharacterUseCase
 import de.coldtea.anidex.character.ui.model.CharacterScreenState
 import de.coldtea.anidex.character.ui.model.Failed
 import de.coldtea.anidex.character.ui.model.Loading
@@ -17,7 +17,7 @@ import javax.inject.Inject
 
 @HiltViewModel
 class CharacterViewModel @Inject constructor(
-    private val characterRepository: CharacterRepository
+    private val acquireCharacterUseCase: AcquireCharacterUseCase
 ): ViewModel() {
     private val _characterScreenState = MutableStateFlow<CharacterScreenState>(Loading)
     val characterScreenState = _characterScreenState.asStateFlow()
@@ -25,7 +25,7 @@ class CharacterViewModel @Inject constructor(
     fun fetchCharacter(characterId: Int) = viewModelScope.launch(Dispatchers.IO) {
         try {
             _characterScreenState.emit(
-                Success(characterRepository.getCharacter(characterId))
+                Success(acquireCharacterUseCase.getCharacter(characterId))
             )
         }catch (ex: Exception){
             _characterScreenState.emit(Failed)
