@@ -1,4 +1,10 @@
 # Anidex
+
+![](https://img.shields.io/badge/Compose-100%25-brightgreen)
+![](https://img.shields.io/badge/Kotlin-1.4-brightgreen)
+![](https://img.shields.io/badge/Build-passing-green)
+![](https://img.shields.io/badge/License-MIT-green)
+
 A guide to explore and track animes using the Jikan Api. Anidex provides the most popular animes in 6 different categories at the main screen. To provide users with something new, one category at the main display changes everytime app restarts. Users can add the animes to their watchlist, take a peek at the details and search animes that they want to watch.
 
 Following gifs present main display, anime detail screen, watchlist& character detail screen and search functionality in the same order
