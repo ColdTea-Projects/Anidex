@@ -26,14 +26,14 @@ android {
     buildTypes {
 
         debug{
-            buildConfigField "String", "ROOT_URL_JIKAN_API", "\"https://api.jikan.moe/v3/\""
+            buildConfigField "String", "ROOT_URL_JIKAN_API", "\"https://api.jikan.moe/v4/\""
 
             minifyEnabled false
             debuggable true
         }
 
         release {
-            buildConfigField "String", "ROOT_URL_JIKAN_API", "\"https://api.jikan.moe/v3/\""
+            buildConfigField "String", "ROOT_URL_JIKAN_API", "\"https://api.jikan.moe/v4/\""
 
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'

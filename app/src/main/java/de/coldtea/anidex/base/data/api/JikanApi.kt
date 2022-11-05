@@ -14,8 +14,8 @@ import retrofit2.http.Query
 
 interface JikanApi {
     // region Content
-    @GET("genre/anime/{genre_id}/{page_number}")
-    suspend fun getAnimeByGenre(@Path("genre_id") genreId: Int, @Path("page_number") pageNumber: Int): AnimesByGenreResponse?
+    @GET("genres/anime")
+    suspend fun getAnimeByGenre(@Query("genres") genreId: Int, @Query("page") pageNumber: Int): AnimesByGenreResponse?
     // endregion
 
     // region Anime Details

@@ -5,7 +5,7 @@ import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
 @Serializable
-data class GenreResponse(
+data class StudioResponse(
     @SerialName("mal_id")
     val malId: Int = 0,
     @SerialName("name")

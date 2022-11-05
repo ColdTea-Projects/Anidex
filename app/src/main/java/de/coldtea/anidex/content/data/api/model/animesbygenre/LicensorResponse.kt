@@ -5,13 +5,13 @@ import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
 @Serializable
-data class MalUrlResponse(
+data class LicensorResponse(
     @SerialName("mal_id")
-    var malId: Int?,
+    val malId: Int = 0,
     @SerialName("name")
-    var name: String?,
+    val name: String = "",
     @SerialName("type")
-    var type: String?,
+    val type: String = "",
     @SerialName("url")
-    var url: String?
+    val url: String = ""
 )

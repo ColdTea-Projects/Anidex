@@ -1,4 +1,4 @@
-package de.coldtea.anidex.content.data.api.model.animesbygenre
+package de.coldtea.anidex.content.data.api.model.animesbygenre.legacy
 
 
 import kotlinx.serialization.SerialName
@@ -7,11 +7,11 @@ import kotlinx.serialization.Serializable
 @Serializable
 data class GenreResponse(
     @SerialName("mal_id")
-    val malId: Int = 0,
+    var malId: Int?,
     @SerialName("name")
-    val name: String = "",
+    var name: String?,
     @SerialName("type")
-    val type: String = "",
+    var type: String?,
     @SerialName("url")
-    val url: String = ""
+    var url: String?
 )

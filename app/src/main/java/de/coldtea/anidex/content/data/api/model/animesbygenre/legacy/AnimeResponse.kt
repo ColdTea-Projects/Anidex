@@ -1,4 +1,4 @@
-package de.coldtea.anidex.content.data.api.model.animesbygenre
+package de.coldtea.anidex.content.data.api.model.animesbygenre.legacy
 
 
 import kotlinx.serialization.SerialName

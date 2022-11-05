@@ -6,5 +6,4 @@ data class Anime(
     val imageUrl: String,
     val rate: Double,
     val isBookmarked: Boolean,
-    val genreId: Int
-    )
+    val genreId: Int)

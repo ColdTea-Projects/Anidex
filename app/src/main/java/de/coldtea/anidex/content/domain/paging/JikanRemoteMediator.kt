@@ -53,7 +53,7 @@ class JikanRemoteMediator(
 
             if(count == 0){
                 val apiResponse = jikanApi.getAnimeByGenre(genreId, page)
-                val animes = apiResponse?.anime
+                val animes = apiResponse?.data
                 val endOfPaginationReached = animes.isNullOrEmpty()
                 anidexDatabase.withTransaction {
                     // clear all tables in the database
