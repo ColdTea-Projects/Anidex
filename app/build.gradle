@@ -9,6 +9,7 @@ plugins {
 
 android {
     compileSdk 31
+    namespace 'de.coldtea.anidex'
 
     defaultConfig {
         applicationId "de.coldtea.anidex"

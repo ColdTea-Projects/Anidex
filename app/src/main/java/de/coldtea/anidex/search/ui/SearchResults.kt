@@ -18,22 +18,20 @@ fun SearchResults(
     pagingState: State<SearchResultPagingState>,
     onItemClicked: (Int) -> Unit
 ) {
-    when(pagingState.value){
-        is PagerReady -> {
-            val results = (pagingState.value as PagerReady).flow.collectAsLazyPagingItems()
+    if (pagingState.value !is PagerReady) return
 
-            LazyColumn(modifier.fillMaxHeight()){
-                items(results){ resultRes ->
-                    with(resultRes?.convertToDomain()?:return@items){
-                        SearchResultRow(
-                            onItemClicked = onItemClicked,
-                            animeId = animeId,
-                            imageUrl = imageUrl,
-                            title = title,
-                            synopsis = synopsis
-                        )
-                    }
-                }
+    val results = (pagingState.value as PagerReady).flow.collectAsLazyPagingItems()
+
+    LazyColumn(modifier.fillMaxHeight()) {
+        items(results) { resultRes ->
+            with(resultRes?.convertToDomain() ?: return@items) {
+                SearchResultRow(
+                    onItemClicked = onItemClicked,
+                    animeId = animeId,
+                    imageUrl = imageUrl,
+                    title = title,
+                    synopsis = synopsis
+                )
             }
         }
     }

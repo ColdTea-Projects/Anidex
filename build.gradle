@@ -4,16 +4,16 @@ buildscript {
         compose_version = '1.0.5'
         dagger_version = '2.40'
         paging_version = "3.1.0"
-        hilt_version = '2.40'
+        hilt_version = '2.40.1'
     }
     repositories {
         google()
         mavenCentral()
     }
     dependencies {
-        classpath "com.android.tools.build:gradle:7.0.3"
-        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:1.5.31"
-        classpath "org.jetbrains.kotlin:kotlin-serialization:1.5.31"
+        classpath 'com.android.tools.build:gradle:7.3.1'
+        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:1.6.20"
+        classpath "org.jetbrains.kotlin:kotlin-serialization:1.6.20"
         classpath "com.google.dagger:hilt-android-gradle-plugin:$hilt_version"
 
         // NOTE: Do not place your application dependencies here; they belong
