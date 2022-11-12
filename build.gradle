@@ -1,7 +1,7 @@
 // Top-level build file where you can add configuration options common to all sub-projects/modules.
 buildscript {
     ext {
-        compose_version = '1.0.5'
+        compose_version = '1.2.0'
         dagger_version = '2.40'
         paging_version = "3.1.0"
         hilt_version = '2.40.1'
